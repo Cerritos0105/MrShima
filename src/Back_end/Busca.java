@@ -138,7 +138,7 @@ public class Busca {
                 int galga_men = rs.getInt("galga_men");
                 int galga_may = rs.getInt("galga_mayor");
                 int nivel = rs.getInt("nivel");
-                int cabezas = rs.getInt("cantidad");
+                int cabezas = rs.getInt("cantida");
                 String tamano = rs.getString("tamano");
                 
 

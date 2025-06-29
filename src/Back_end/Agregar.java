@@ -30,4 +30,26 @@ public class Agregar {
             System.out.println( "Error al registrar la tegedora: " + e.getMessage());
         }
     }
+    public void Agrgar_A(String nombre, double precio, double credito, String maquinas, int galga_men, int galga_may, int nivel , int cantidad, String tamano){
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "INSERT INTO inventario_A(nombre,precio, credito , Maquinas,galga_men, galga_mayor, nivel, cantida, estado, tamano) VALUES (?,?,?,?,?,?,?,?,?,?);";
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setString(1, nombre);
+                pstmt.setDouble(2, precio);
+                pstmt.setDouble(3, credito);
+                pstmt.setString(4, maquinas);
+                pstmt.setInt(5, galga_men);
+                pstmt.setInt(6, galga_may);
+                pstmt.setInt(7, nivel);
+                pstmt.setInt(8, cantidad);
+                pstmt.setBoolean(9, true);
+                pstmt.setString(10, tamano);
+                pstmt.executeUpdate();
+                System.out.println("Registrado Correctamente");
+            }
+        }catch (Exception e) {
+            e.printStackTrace(); 
+            System.out.println( "Error al registrar : " + e.getMessage());
+        }
+    }
 }
