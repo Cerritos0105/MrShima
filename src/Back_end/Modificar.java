@@ -98,4 +98,26 @@ public class Modificar {
                         System.out.println( "Error al Regresar la tegedora: " + e.getMessage());
                }
      }
+    public void Modificar_A(int ID, String nombre, double precio, double credito, String Maquinas, int galga_men, int galga_may, int nivel, int cantidad, String tamano) {
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "UPDATE inventario_A SET nombre = ?, precio = ?, credito = ?, Maquinas = ?, galga_men = ?, galga_mayor = ?, nivel = ?, cantida = ?, tamano = ? WHERE ID = ?;";
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setString(1, nombre);
+                pstmt.setDouble(2, precio);
+                pstmt.setDouble(3, credito);
+                pstmt.setString(4, Maquinas);
+                pstmt.setInt(5, galga_men);
+                pstmt.setInt(6, galga_may);
+                pstmt.setInt(7, nivel);
+                pstmt.setInt(8, cantidad);
+                pstmt.setString(9, tamano);
+                pstmt.setInt(10, ID);
+                pstmt.executeUpdate();
+                System.out.println("Registro actualizado correctamente.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al modificar: " + e.getMessage());
+        }
+    }
 }

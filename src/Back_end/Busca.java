@@ -151,4 +151,36 @@ public class Busca {
         }
         return T;
     }
+    public InventarioA busca_A_ID(int ID){
+        InventarioA producto= new InventarioA();
+         try (Connection conn = conexion.getConnection()) {
+            
+            String consulta = "select * from Inventario_A where estado= true and ID = ?;";
+             try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setInt(1,ID);
+                Statement stmn = conn.createStatement();
+                ResultSet rs = pstmt.executeQuery();
+
+                while (rs.next()) {
+                    int id = rs.getInt("ID");
+                    String nombre = rs.getString("nombre");
+                    double precio = rs.getDouble("precio");
+                    double credito = rs.getDouble("credito");
+                    String maquinas = rs.getString("Maquinas");
+                    int galga_men = rs.getInt("galga_men");
+                    int galga_may = rs.getInt("galga_mayor");
+                    int nivel = rs.getInt("nivel");
+                    int cabezas = rs.getInt("cantida");
+                    String tamano = rs.getString("tamano");
+
+
+                    producto = new InventarioA(id,nombre, precio, credito, maquinas, galga_men, galga_may, nivel, cabezas, tamano);
+            }
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al buscar Aguja: " + e.getMessage());
+        }
+        return producto;
+    }
 }
