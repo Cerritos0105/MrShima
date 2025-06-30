@@ -112,9 +112,9 @@ public class Modificar_Aujas extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(293, 293, 293)
+                        .addGap(333, 333, 333)
                         .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addContainerGap(335, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(19, 19, 19)
@@ -150,16 +150,16 @@ public class Modificar_Aujas extends javax.swing.JFrame {
                         .addComponent(txtNivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtTamano, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
-                    .addContainerGap(76, Short.MAX_VALUE)))
+                    .addContainerGap(87, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(48, 48, 48))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(142, 142, 142)
@@ -222,7 +222,10 @@ public class Modificar_Aujas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtGalga_MenorActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        m.Modificar_A(ID, txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Double.parseDouble(txtCredito.getText()), txtMaquinas.getText(), Integer.parseInt(txtGalga_Menor.getText()), Integer.parseInt(txtGalga_Mayor.getText()), Integer.parseInt(txtNivel.getText()), Integer.parseInt(txtCantidad.getText()), txtTamano.getText());
+        m.Modificar_A(ID, txtNombre.getText(), Double.parseDouble(txtPrecio.getText()),
+                Double.parseDouble(txtCredito.getText()), txtMaquinas.getText(), Integer.parseInt(txtGalga_Menor.getText()),
+                Integer.parseInt(txtGalga_Mayor.getText()), Integer.parseInt(txtNivel.getText()),
+                Integer.parseInt(txtCantidad.getText()), txtTamano.getText());
     }//GEN-LAST:event_button2ActionPerformed
 
     /**

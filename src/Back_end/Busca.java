@@ -183,4 +183,115 @@ public class Busca {
         }
         return producto;
     }
+    public List<InventarioA> buscarInventarioA(String nomabre, double precio, double credito, String maquias, int galta_men, int gaslga_may, int nivel, int cantidad, String tamano) {
+        List<InventarioA> productos = new ArrayList<>();
+
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "SELECT * FROM inventario_A WHERE estado = true";
+            int cs = 0;
+
+            // Construcción dinámica de la consulta
+            if (!nomabre.isEmpty()) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " nombre LIKE '%" + nomabre + "%'";
+            }
+            if (precio > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " precio <= ?";
+            }
+            if (credito > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " credito <= ?";
+            }
+            if (!maquias.isEmpty()) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += "Maquinas LIKE '%" + maquias + "%'";
+            }
+            if (galta_men > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " galga_men = ?";
+            }
+            if (gaslga_may > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " galga_mayor = ?";
+            }
+            if (nivel > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " nivel = ?";
+            }
+            if (cantidad > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " cantida = ?";
+            }
+            if (!tamano.isEmpty()) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " tamano LIKE '%" + tamano + "%'";
+            }
+            consulta +=";";
+            System.out.println(consulta);
+
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                int index = 1;
+
+               
+                if (precio > 0) {
+                    pstmt.setDouble(index++, precio);
+                }
+                if (credito > 0) {
+                    pstmt.setDouble(index++, credito);
+                }
+                if (galta_men > 0) {
+                    pstmt.setInt(index++, galta_men);
+                }
+                if (gaslga_may > 0) {
+                    pstmt.setInt(index++, gaslga_may);
+                }
+                if (nivel > 0) {
+                    pstmt.setInt(index++, nivel);
+                }
+                if (cantidad > 0) {
+                    pstmt.setInt(index++, cantidad);
+                }
+                
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    while (rs.next()) {
+                        InventarioA producto = new InventarioA(
+                            rs.getInt("ID"),
+                            rs.getString("nombre"),
+                            rs.getDouble("precio"),
+                            rs.getDouble("credito"),
+                            rs.getString("Maquinas"),
+                            rs.getInt("galga_men"),
+                            rs.getInt("galga_mayor"),
+                            rs.getInt("nivel"),
+                            rs.getInt("cantida"),
+                            rs.getString("tamano")
+                        );
+                        productos.add(producto);
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al buscar productos: " + e.getMessage());
+        }
+
+        if (productos.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
+        }
+
+        return productos;
+    }
+
+
 }
