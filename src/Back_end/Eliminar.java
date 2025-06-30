@@ -18,4 +18,14 @@ public class Eliminar {
             //System.out.println(e);
         }
     }
+    public void Inventario_A(int id){
+         String consulta = "delete from Inventario_A where ID=?;";
+        try (PreparedStatement pstmt = conexion.getConnection().prepareStatement(consulta)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+            //System.out.println("YES");
+        } catch(Exception e){
+            //System.out.println(e);
+        }
+    }
 }

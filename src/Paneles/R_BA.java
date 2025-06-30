@@ -101,6 +101,11 @@ public class R_BA extends javax.swing.JFrame {
         });
 
         button5.setLabel("Eliminar");
+        button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button5ActionPerformed(evt);
+            }
+        });
 
         listaUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,6 +212,18 @@ public class R_BA extends javax.swing.JFrame {
         aa.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button2ActionPerformed
+
+    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
+        if(Tabla_Id == 0){
+            System.out.println("Favor de seleccionar un Producto");
+        }else{
+            Eliminar e= new Eliminar();
+            e.Inventario_A(Tabla_Id);
+            Aujas as = new Aujas();
+            as.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_button5ActionPerformed
 
     /**
      * @param args the command line arguments

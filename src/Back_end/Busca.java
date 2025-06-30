@@ -209,7 +209,7 @@ public class Busca {
             if (!maquias.isEmpty()) {
                 cs += 1;
                 if(cs >= 2) consulta += " and";
-                consulta += "Maquinas LIKE '%" + maquias + "%'";
+                consulta += " Maquinas LIKE '%" + maquias + "%'";
             }
             if (galta_men > 0) {
                 cs += 1;
