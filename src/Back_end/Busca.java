@@ -187,7 +187,7 @@ public class Busca {
         List<InventarioA> productos = new ArrayList<>();
 
         try (Connection conn = conexion.getConnection()) {
-            String consulta = "SELECT * FROM inventario_A WHERE estado = true";
+            String consulta = "SELECT * FROM inventario_A WHERE estado = true and";
             int cs = 0;
 
             // Construcción dinámica de la consulta
