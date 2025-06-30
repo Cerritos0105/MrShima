@@ -54,7 +54,7 @@ public class Modificar {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al vender la tegedora esre bien pemdejo: " + e.getMessage());
+                        System.out.println( "Error al vender la tejedora: " + e.getMessage());
                }
      }
      public void Agregrar_Abono_T(int ID, double cantidad) {
