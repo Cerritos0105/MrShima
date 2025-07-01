@@ -21,6 +21,7 @@ public class Aujas extends javax.swing.JFrame {
     int Tabla_Id=0;
     double precio=0;
     int cantidado=0;
+    double credito=0;
     public Aujas() {
         initComponents();
         Busca  b= new Busca();
@@ -152,6 +153,11 @@ public class Aujas extends javax.swing.JFrame {
         });
 
         button7.setLabel("Vneder a credito");
+        button7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,6 +246,7 @@ public class Aujas extends javax.swing.JFrame {
         Tabla_Id = Integer.parseInt((String) model.getValueAt(row, 0));
         precio = Double.parseDouble((String) model.getValueAt(row, 2));
         cantidado=Integer.parseInt((String) model.getValueAt(row, 8));
+        credito = Double.parseDouble((String) model.getValueAt(row, 3));
     }//GEN-LAST:event_listaUserMouseClicked
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
@@ -263,6 +270,12 @@ public class Aujas extends javax.swing.JFrame {
             this.setVisible(false);
         }
     }//GEN-LAST:event_button6ActionPerformed
+
+    private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
+        VenderAD vad = new VenderAD(credito, Tabla_Id, cantidado);
+        vad.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_button7ActionPerformed
 
     /**
      * @param args the command line arguments
