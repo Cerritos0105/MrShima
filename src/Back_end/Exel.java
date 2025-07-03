@@ -33,6 +33,14 @@ public class Exel {
             exportarTabla(conn, workbook, "Bordadora");
             exportarTabla(conn, workbook, "inventario_A");
             exportarTabla(conn, workbook, "invetario_b");
+            exportarTabla_V(conn, workbook, "tejedora");
+            exportarTabla_V(conn, workbook, "Bordadora");
+            exportarTabla_V(conn, workbook, "inventario_A");
+            exportarTabla_V(conn, workbook, "invetario_b");
+            exportarTabla_D(conn, workbook, "tejedora");
+            exportarTabla_D(conn, workbook, "Bordadora");
+            exportarTabla_D(conn, workbook, "inventario_A");
+            exportarTabla_D(conn, workbook, "invetario_b");
 
             // Guardar el archivo
             try (FileOutputStream fileOut = new FileOutputStream(archivoExcel)) {
@@ -50,11 +58,71 @@ public class Exel {
     }
      private void exportarTabla(Connection conn, Workbook workbook, String nombreTabla) {
         try {
-            String consulta = "SELECT * FROM " + nombreTabla;
+            String consulta = "SELECT * FROM " + nombreTabla + " WHERE  estado = true;";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(consulta);
 
-            Sheet hoja = workbook.createSheet(nombreTabla);
+            Sheet hoja = workbook.createSheet(nombreTabla+" a la venta");
+
+            // Crear cabecera
+            Row header = hoja.createRow(0);
+            int columnas = rs.getMetaData().getColumnCount();
+
+            for (int i = 1; i <= columnas; i++) {
+                header.createCell(i - 1).setCellValue(rs.getMetaData().getColumnName(i));
+            }
+
+            // Llenar datos
+            int rowIndex = 1;
+            while (rs.next()) {
+                Row fila = hoja.createRow(rowIndex++);
+                for (int i = 1; i <= columnas; i++) {
+                    fila.createCell(i - 1).setCellValue(rs.getString(i));
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error exportando la tabla: " + nombreTabla + "\n" + e.getMessage());
+        }
+    }
+     private void exportarTabla_V(Connection conn, Workbook workbook, String nombreTabla) {
+        try {
+            String consulta = "SELECT * FROM " + nombreTabla + " WHERE  estado = false and credito = 0;";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(consulta);
+
+            Sheet hoja = workbook.createSheet(nombreTabla+" Vendido");
+
+            // Crear cabecera
+            Row header = hoja.createRow(0);
+            int columnas = rs.getMetaData().getColumnCount();
+
+            for (int i = 1; i <= columnas; i++) {
+                header.createCell(i - 1).setCellValue(rs.getMetaData().getColumnName(i));
+            }
+
+            // Llenar datos
+            int rowIndex = 1;
+            while (rs.next()) {
+                Row fila = hoja.createRow(rowIndex++);
+                for (int i = 1; i <= columnas; i++) {
+                    fila.createCell(i - 1).setCellValue(rs.getString(i));
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error exportando la tabla: " + nombreTabla + "\n" + e.getMessage());
+        }
+    }
+     private void exportarTabla_D(Connection conn, Workbook workbook, String nombreTabla) {
+        try {
+            String consulta = "SELECT * FROM " + nombreTabla + " WHERE  estado = false and precio = 0;";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(consulta);
+
+            Sheet hoja = workbook.createSheet(nombreTabla+" Deuda");
 
             // Crear cabecera
             Row header = hoja.createRow(0);

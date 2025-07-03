@@ -33,8 +33,14 @@
                       <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
                       <Component id="button2" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="label1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtCant" min="-2" pref="245" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="314" max="32767" attributes="0"/>
+              <EmptySpace pref="208" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,7 +49,12 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="button1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="386" max="32767" attributes="0"/>
+              <EmptySpace pref="206" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="label1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCant" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
               <Component id="button2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
           </Group>
@@ -63,6 +74,16 @@
       <Properties>
         <Property name="label" type="java.lang.String" value="Agregar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Label" name="label1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Abono"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.TextField" name="txtCant">
     </Component>
   </SubComponents>
 </Form>

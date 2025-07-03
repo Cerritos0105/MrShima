@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Paneles;
-
+import Back_end.*;
 /**
  *
  * @author lupit
@@ -13,8 +13,11 @@ public class Agregar_A_A extends javax.swing.JFrame {
     /**
      * Creates new form Agregar_A_A
      */
-    public Agregar_A_A() {
+    int ID =0;
+    public Agregar_A_A(int id) {
         initComponents();
+        txtCant.setText("0");
+        ID=id;
     }
 
     /**
@@ -28,6 +31,8 @@ public class Agregar_A_A extends javax.swing.JFrame {
 
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
+        label1 = new java.awt.Label();
+        txtCant = new java.awt.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,6 +44,13 @@ public class Agregar_A_A extends javax.swing.JFrame {
         });
 
         button2.setLabel("Agregar");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
+
+        label1.setText("Abono");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,15 +63,24 @@ public class Agregar_A_A extends javax.swing.JFrame {
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(268, 268, 268)
-                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(314, Short.MAX_VALUE))
+                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(160, 160, 160)
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
@@ -72,6 +93,15 @@ public class Agregar_A_A extends javax.swing.JFrame {
         ad.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+         Modificar m = new Modificar();
+         if(txtCant.getText().isEmpty() || txtCant.getText().equalsIgnoreCase("0") || txtCant.getText().charAt(0)=='-'){
+             System.out.println("Valor no valido");
+         }else{
+             m.Agregrar_Abono_A(ID, Double.parseDouble(txtCant.getText()));
+         }
+    }//GEN-LAST:event_button2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,7 +133,7 @@ public class Agregar_A_A extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agregar_A_A().setVisible(true);
+                new Agregar_A_A(0).setVisible(true);
             }
         });
     }
@@ -111,5 +141,7 @@ public class Agregar_A_A extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
     private java.awt.Button button2;
+    private java.awt.Label label1;
+    private java.awt.TextField txtCant;
     // End of variables declaration//GEN-END:variables
 }

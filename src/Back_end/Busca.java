@@ -292,6 +292,35 @@ public class Busca {
 
         return productos;
     }
+    public List<InventarioA> busca_A_D(){
+        List<InventarioA> T = new ArrayList<>();
+         try (Connection conn = conexion.getConnection()) {
+            // Consulta SQL
+            String consulta = "select * from Inventario_A where estado= false and precio = 0;";
+            Statement stmn = conn.createStatement();
+            ResultSet rs = stmn.executeQuery(consulta);
 
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String nombre = rs.getString("nombre");
+                double precio = rs.getDouble("precio");
+                double credito = rs.getDouble("credito");
+                String maquinas = rs.getString("Maquinas");
+                int galga_men = rs.getInt("galga_men");
+                int galga_may = rs.getInt("galga_mayor");
+                int nivel = rs.getInt("nivel");
+                int cabezas = rs.getInt("cantida");
+                String tamano = rs.getString("tamano");
+                
+
+                InventarioA producto = new InventarioA(id,nombre, precio, credito, maquinas, galga_men, galga_may, nivel, cabezas, tamano);
+                T.add(producto);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al buscar Tgedoras: " + e.getMessage());
+        }
+        return T;
+    }
 
 }

@@ -121,4 +121,32 @@ public class Modificar {
             System.out.println("Error al modificar: " + e.getMessage());
         }
     }
+    public void Agregrar_Abono_A(int ID, double cantidad) {
+        double precio = 0; 
+        try (Connection conn = conexion.getConnection()) {
+
+            // Obtener precio
+            String consultaSelect = "SELECT credito FROM inventario_A WHERE ID = ?;";
+            try (PreparedStatement pstmt = conn.prepareStatement(consultaSelect)) {
+                pstmt.setInt(1, ID);
+                ResultSet rs = pstmt.executeQuery();
+
+                if (rs.next()) {
+                    precio = rs.getDouble("credito");
+                }
+            }
+            //System.out.println(ID);
+            precio-=cantidad;
+            String consultaUpdate = "UPDATE inventario_A SET credito = ? WHERE ID = ?;";
+            try (PreparedStatement pstmt = conn.prepareStatement(consultaUpdate)) {
+                pstmt.setDouble(1, precio); 
+                pstmt.setInt(2, ID);
+                pstmt.executeUpdate();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al vender la tejedora: " + e.getMessage());
+        }
+    }
 }
