@@ -43,6 +43,10 @@ public class BordadoraO {
         this.propietario = propietario;
     }
 
+    public BordadoraO(String string, double aDouble, String string0, int aInt, int aInt0, double aDouble0, String string1, String string2, String string3, int aInt1, double aDouble1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Getters
     public int getId() {
         return id;

@@ -120,4 +120,30 @@ public class Modificar {
             System.out.println("Error al modificar: " + e.getMessage());
         }
     }
+    public void Modificar_Bor(String marca, double precio, String area, int cabezas, int colores,
+                          double credito, String propietario, String serie, String accesorios,
+                          int anio, double saldo) {
+    try (Connection conn = conexion.getConnection()) {
+        String sql = "UPDATE bordadora SET marca = ?, precio = ?, area = ?, cabezas = ?, colores = ?, credito = ?, propietario = ?, accesorios = ?, anio = ?, saldo = ? WHERE serie = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, marca);
+            pstmt.setDouble(2, precio);
+            pstmt.setString(3, area);
+            pstmt.setInt(4, cabezas);
+            pstmt.setInt(5, colores);
+            pstmt.setDouble(6, credito);
+            pstmt.setString(7, propietario);
+            pstmt.setString(8, accesorios);
+            pstmt.setInt(9, anio);
+            pstmt.setDouble(10, saldo);
+            pstmt.setString(11, serie); // WHERE
+            pstmt.executeUpdate();
+            System.out.println("Bordadora modificada con éxito.");
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Error al modificar la bordadora: " + e.getMessage());
+    }
+}
+
 }
