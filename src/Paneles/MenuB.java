@@ -8,12 +8,12 @@ package Paneles;
  *
  * @author lupit
  */
-public class Menu_B extends javax.swing.JFrame {
+public class MenuB extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu_B
+     * Creates new form MenuB
      */
-    public Menu_B() {
+    public MenuB() {
         initComponents();
     }
 
@@ -32,7 +32,6 @@ public class Menu_B extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        button1.setActionCommand("btVolver");
         button1.setLabel("Volver");
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -40,16 +39,14 @@ public class Menu_B extends javax.swing.JFrame {
             }
         });
 
-        button2.setActionCommand("btnVenta");
-        button2.setLabel("En venta ");
+        button2.setLabel("Bordadoras en venta");
         button2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button2ActionPerformed(evt);
             }
         });
 
-        button3.setActionCommand("btnAdeudo");
-        button3.setLabel("Vendidas sin pagar");
+        button3.setLabel("Bordadodras sin pagar");
         button3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button3ActionPerformed(evt);
@@ -61,26 +58,26 @@ public class Menu_B extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(171, 171, 171)
+                .addGap(143, 143, 143)
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(204, 204, 204))
+                .addGap(199, 199, 199))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addContainerGap()
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(212, 212, 212)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addGap(222, 222, 222))
         );
 
         pack();
@@ -99,10 +96,9 @@ public class Menu_B extends javax.swing.JFrame {
     }//GEN-LAST:event_button2ActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
-       Bordadodras_D db = new Bordadodras_D();
-       db.setVisible(true);
-       this.setVisible(false);
-       
+        Bordadodras_D  bd = new Bordadodras_D();
+        bd.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_button3ActionPerformed
 
     /**
@@ -122,20 +118,20 @@ public class Menu_B extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu_B.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu_B.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu_B.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu_B.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu_B().setVisible(true);
+                new MenuB().setVisible(true);
             }
         });
     }

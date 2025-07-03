@@ -123,7 +123,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_button3ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
-        Menu_B mb = new Menu_B();
+        MenuB mb = new MenuB();
         mb.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button4ActionPerformed

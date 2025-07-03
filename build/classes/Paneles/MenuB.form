@@ -24,30 +24,30 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="button1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
               <Component id="button2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="305" max="32767" attributes="0"/>
+              <EmptySpace pref="135" max="32767" attributes="0"/>
               <Component id="button3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="button1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
+              <EmptySpace pref="243" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="button2" min="-2" max="-2" attributes="0"/>
                   <Component id="button3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="227" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,7 +55,6 @@
   <SubComponents>
     <Component class="java.awt.Button" name="button1">
       <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="btVolver"/>
         <Property name="label" type="java.lang.String" value="Volver"/>
       </Properties>
       <Events>
@@ -64,8 +63,7 @@
     </Component>
     <Component class="java.awt.Button" name="button2">
       <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="btnVenta"/>
-        <Property name="label" type="java.lang.String" value="En venta "/>
+        <Property name="label" type="java.lang.String" value="Bordadoras en venta"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button2ActionPerformed"/>
@@ -73,8 +71,7 @@
     </Component>
     <Component class="java.awt.Button" name="button3">
       <Properties>
-        <Property name="actionCommand" type="java.lang.String" value="btnAdeudo"/>
-        <Property name="label" type="java.lang.String" value="Vendidas sin pagar"/>
+        <Property name="label" type="java.lang.String" value="Bordadodras sin pagar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button3ActionPerformed"/>
