@@ -285,6 +285,8 @@ public class Busca {
             e.printStackTrace();
             System.out.println("Error al buscar productos: " + e.getMessage());
         }
+        
+        
 
         if (productos.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
@@ -292,6 +294,98 @@ public class Busca {
 
         return productos;
     }
+    
+    public List<BordadoraO> buscarBordadoras(String marca, double precio, String area, int cabezas, int colores,
+                                         double credito, String propietario, String numeroSerie, String accesorios,
+                                         int anio, double saldo) {
+    List<BordadoraO> productos = new ArrayList<>();
+    try (Connection conn = conexion.getConnection()) {
+        String consulta = "SELECT * FROM bordadora WHERE estado = true";
+        List<Object> params = new ArrayList<>();
+        
+        if (!marca.isEmpty()) {
+            consulta += " AND marca LIKE ?";
+            params.add("%" + marca + "%");
+        }
+        if (precio > 0) {
+            consulta += " AND precio <= ?";
+            params.add(precio);
+        }
+        if (!area.isEmpty()) {
+            consulta += " AND area LIKE ?";
+            params.add("%" + area + "%");
+        }
+        if (cabezas > 0) {
+            consulta += " AND cabezas = ?";
+            params.add(cabezas);
+        }
+        if (colores > 0) {
+            consulta += " AND colores = ?";
+            params.add(colores);
+        }
+        if (credito > 0) {
+            consulta += " AND credito <= ?";
+            params.add(credito);
+        }
+        if (!propietario.isEmpty()) {
+            consulta += " AND propietario LIKE ?";
+            params.add("%" + propietario + "%");
+        }
+        if (!numeroSerie.isEmpty()) {
+            consulta += " AND numero_serie LIKE ?";
+            params.add("%" + numeroSerie + "%");
+        }
+        if (!accesorios.isEmpty()) {
+            consulta += " AND accesorios LIKE ?";
+            params.add("%" + accesorios + "%");
+        }
+        if (anio > 0) {
+            consulta += " AND anio = ?";
+            params.add(anio);
+        }
+        if (saldo > 0) {
+            consulta += " AND saldo <= ?";
+            params.add(saldo);
+        }
+
+        try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+            for (int i = 0; i < params.size(); i++) {
+                pstmt.setObject(i + 1, params.get(i));
+            }
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    BordadoraO b = new BordadoraO(
+                        rs.getInt("ID"),
+                        rs.getDouble("precio"),
+                        rs.getDouble("credito"),
+                        rs.getString("accesorios"),
+                        rs.getInt("anio"),
+                        rs.getString("area"),
+                        rs.getInt("colores"),
+                        rs.getInt("cabezas"),
+                        rs.getString("marca"),
+                        rs.getString("numero_serie"),
+                        rs.getBoolean("estado"),
+                        rs.getDouble("saldo"),
+                        rs.getString("propietario")
+                    );
+                    productos.add(b);
+                }
+            }
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("❌ Error al buscar bordadoras: " + e.getMessage());
+    }
+
+    if (productos.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "No se encontraron coincidencias en bordadoras.");
+    }
+
+    return productos;
+}
 
 
 }
