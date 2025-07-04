@@ -54,27 +54,30 @@ public class ObtenerD {
             pstmt.setString(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                b = new BordadoraO(
-                    rs.getString("marca"),
-                    rs.getDouble("precio"),
-                    rs.getString("area"),
-                    rs.getInt("cabezas"),
-                    rs.getInt("colores"),
-                    rs.getDouble("credito"),
-                    rs.getString("propietario"),
-                    rs.getString("serie"),
-                    rs.getString("accesorios"),
-                    rs.getInt("anio"),
-                    rs.getDouble("saldo")
-                );
+                int ID = rs.getInt("ID");
+                double precio = rs.getDouble("precio");
+                double credito = rs.getDouble("credito");
+                String accesorios = rs.getString("accesorios");
+                int anio = rs.getInt("anio");
+                String area = rs.getString("area");
+                int colores = rs.getInt("colores");
+                int cabezas = rs.getInt("cabezas");
+                String marca = rs.getString("marca");
+                String numeroSerie = rs.getString("numero_serie"); // ✅ CAMBIADO
+                boolean estado = rs.getBoolean("estado");
+                double saldo = rs.getDouble("saldo");
+                String propietario = rs.getString("propietario");
+
+                b = new BordadoraO(ID, precio, credito, accesorios, anio, area, colores, cabezas, marca, numeroSerie, estado, saldo, propietario);
             }
         }
     } catch (Exception e) {
         e.printStackTrace();
-        System.out.println("Error al obtener la bordadora: " + e.getMessage());
+        System.out.println("❌ Error al obtener la bordadora: " + e.getMessage());
     }
     return b;
 }
+
 
 
 }

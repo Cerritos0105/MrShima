@@ -190,7 +190,15 @@ public class Bordaodoras extends javax.swing.JFrame {
     }//GEN-LAST:event_button2ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
-        // TODO add your handling code here:
+        if(Tabla_Id==0){
+            System.out.println("Selecione un producto");
+        }else{
+            Eliminar e = new Eliminar();
+            e.Bordadora(String.valueOf(Tabla_Id));
+            Bordaodoras B = new Bordaodoras();
+            B.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_button4ActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed

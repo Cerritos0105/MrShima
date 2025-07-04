@@ -120,11 +120,11 @@ public class Modificar {
             System.out.println("Error al modificar: " + e.getMessage());
         }
     }
-    public void Modificar_Bor(String marca, double precio, String area, int cabezas, int colores,
-                          double credito, String propietario, String serie, String accesorios,
+    public void Modificar_Bor(int id, String marca, double precio, String area, int cabezas, int colores,
+                          double credito, String propietario, String numeroSerie, String accesorios,
                           int anio, double saldo) {
     try (Connection conn = conexion.getConnection()) {
-        String sql = "UPDATE bordadora SET marca = ?, precio = ?, area = ?, cabezas = ?, colores = ?, credito = ?, propietario = ?, accesorios = ?, anio = ?, saldo = ? WHERE serie = ?";
+        String sql = "UPDATE bordadora SET marca = ?, precio = ?, area = ?, cabezas = ?, colores = ?, credito = ?, propietario = ?, numero_serie = ?, accesorios = ?, anio = ?, saldo = ? WHERE ID = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, marca);
             pstmt.setDouble(2, precio);
@@ -133,17 +133,23 @@ public class Modificar {
             pstmt.setInt(5, colores);
             pstmt.setDouble(6, credito);
             pstmt.setString(7, propietario);
-            pstmt.setString(8, accesorios);
-            pstmt.setInt(9, anio);
-            pstmt.setDouble(10, saldo);
-            pstmt.setString(11, serie); // WHERE
+            pstmt.setString(8, numeroSerie);
+            pstmt.setString(9, accesorios);
+            pstmt.setInt(10, anio);
+            pstmt.setDouble(11, saldo);
+            pstmt.setInt(12, id); // 🔁 Aquí va el ID en el WHERE
             pstmt.executeUpdate();
-            System.out.println("Bordadora modificada con éxito.");
+            System.out.println("✅ Bordadora modificada con éxito.");
         }
     } catch (Exception e) {
         e.printStackTrace();
-        System.out.println("Error al modificar la bordadora: " + e.getMessage());
+        System.out.println("❌ Error al modificar la bordadora: " + e.getMessage());
     }
 }
+
+    public void Modificar_Bor(String text, double parseDouble, String text0, int parseInt, int parseInt0, double parseDouble0, String text1, String text2, String text3, int parseInt1, double parseDouble1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 
 }

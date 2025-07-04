@@ -11,28 +11,32 @@ import Back_end.Modificar;
  * @author lupit
  */
 public class Modificar_Bor extends javax.swing.JFrame {
-
+    
+    private int idBordadora;
     /**
      * Creates new form Modificar_Bor
      */
     public Modificar_Bor(int Id) {
-        initComponents();
+    initComponents();
+    this.idBordadora = Id; // <--- Guardamos el ID
+
     String x = String.valueOf(Id);
     ObtenerD o = new ObtenerD();
     BordadoraO b = o.obtenerB(x);
 
-    jTextField1.setText(b.getMarca());              // Marca
-    jTextField2.setText(String.valueOf(b.getPrecio())); // Precio
-    jTextField3.setText(b.getArea());               // Area
-    jTextField4.setText(String.valueOf(b.getCabezas())); // Cabezas
-    jTextField5.setText(String.valueOf(b.getColores())); // Colores
-    jTextField6.setText(String.valueOf(b.getCredito())); // Credito
-    jTextField7.setText(b.getPropietario());        // Propietario
-    jTextField9.setText(b.getNumeroSerie());              // Serie
-    jTextField10.setText(b.getAccesorios());        // Accesorios
-    jTextField11.setText(String.valueOf(b.getAnio()));   // Año
-    jTextField12.setText(String.valueOf((int) b.getSaldo()));  // Saldo
-    }
+    // Rellenamos campos
+    jTextField1.setText(b.getMarca());
+    jTextField2.setText(String.valueOf(b.getPrecio()));
+    jTextField3.setText(b.getArea());
+    jTextField4.setText(String.valueOf(b.getCabezas()));
+    jTextField5.setText(String.valueOf(b.getColores()));
+    jTextField6.setText(String.valueOf(b.getCredito()));
+    jTextField7.setText(b.getPropietario());
+    jTextField9.setText(b.getNumeroSerie());
+    jTextField10.setText(b.getAccesorios());
+    jTextField11.setText(String.valueOf(b.getAnio()));
+    jTextField12.setText(String.valueOf((int) b.getSaldo()));
+}
 
     private Modificar_Bor() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -258,19 +262,20 @@ public class Modificar_Bor extends javax.swing.JFrame {
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
          Modificar m = new Modificar();
-m.Modificar_Bor(
-    jTextField1.getText(),                      // Marca
-    Double.parseDouble(jTextField2.getText()),  // Precio
-    jTextField3.getText(),                      // Área
-    Integer.parseInt(jTextField4.getText()),    // Cabezas
-    Integer.parseInt(jTextField5.getText()),    // Colores
-    Double.parseDouble(jTextField6.getText()),  // Crédito
-    jTextField7.getText(),                      // Propietario
-    jTextField9.getText(),                      // Serie (clave)
-    jTextField10.getText(),                     // Accesorios
-    Integer.parseInt(jTextField11.getText()),   // Año
-    Double.parseDouble(jTextField12.getText())  // Saldo
-);
+    m.Modificar_Bor(
+        idBordadora,                                   // ✅ Usar ID
+        jTextField1.getText(),                         // Marca
+        Double.parseDouble(jTextField2.getText()),     // Precio
+        jTextField3.getText(),                         // Área
+        Integer.parseInt(jTextField4.getText()),       // Cabezas
+        Integer.parseInt(jTextField5.getText()),       // Colores
+        Double.parseDouble(jTextField6.getText()),     // Crédito
+        jTextField7.getText(),                         // Propietario
+        jTextField9.getText(),                         // Número de Serie
+        jTextField10.getText(),                        // Accesorios
+        Integer.parseInt(jTextField11.getText()),      // Año
+        Double.parseDouble(jTextField12.getText())     // Saldo
+    );
     }//GEN-LAST:event_button2ActionPerformed
 
     /**
