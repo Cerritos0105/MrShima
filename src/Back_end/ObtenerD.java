@@ -62,7 +62,7 @@ public class ObtenerD {
                     rs.getInt("colores"),
                     rs.getDouble("credito"),
                     rs.getString("propietario"),
-                    rs.getString("serie"),
+                    rs.getString("numero_serie"),
                     rs.getString("accesorios"),
                     rs.getInt("anio"),
                     rs.getDouble("saldo")

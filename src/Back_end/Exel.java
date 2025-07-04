@@ -30,15 +30,15 @@ public class Exel {
 
             // Exportar cada tabla a una hoja
             exportarTabla(conn, workbook, "tejedora");
-            exportarTabla(conn, workbook, "Bordadora");
+            exportarTabla(conn, workbook, "bordadora");
             exportarTabla(conn, workbook, "inventario_A");
             exportarTabla(conn, workbook, "invetario_b");
             exportarTabla_V(conn, workbook, "tejedora");
-            exportarTabla_V(conn, workbook, "Bordadora");
+            exportarTabla_V(conn, workbook, "bordadora");
             exportarTabla_V(conn, workbook, "inventario_A");
             exportarTabla_V(conn, workbook, "invetario_b");
             exportarTabla_D(conn, workbook, "tejedora");
-            exportarTabla_D(conn, workbook, "Bordadora");
+            exportarTabla_D(conn, workbook, "bordadora");
             exportarTabla_D(conn, workbook, "inventario_A");
             exportarTabla_D(conn, workbook, "invetario_b");
 

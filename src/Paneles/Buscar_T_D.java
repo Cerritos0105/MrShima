@@ -114,7 +114,7 @@ public class Buscar_T_D extends javax.swing.JFrame {
         String p= txtPropietario.getText();
         String c = txtCredito.getText();
         Busca b = new Busca();
-        R_B_TD tbtd = new R_B_TD(b.TegdoraV("", "", 0, "", "", p, Double.parseDouble(c), 0, 0));
+        R_B_TD tbtd = new R_B_TD(b.TegdoraVD("", "", 0, "", "", p, Double.parseDouble(c), 0, 0));
         tbtd.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button2ActionPerformed

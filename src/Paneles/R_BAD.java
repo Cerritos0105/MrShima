@@ -4,8 +4,9 @@
  */
 package Paneles;
 
-import Back_end.*;
+import Back_end.Eliminar;
 import Objetos.InventarioA;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,19 +14,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lupit
  */
-public class Aujas_D extends javax.swing.JFrame {
+public class R_BAD extends javax.swing.JFrame {
 
     /**
-     * Creates new form Aujas_D
+     * Creates new form R_BAD
      */
     int Tabla_Id=0;
     double precio=0;
     int cantidado=0;
     double credito=0;
-    public Aujas_D() {
+    public R_BAD(List<InventarioA> ls) {
         initComponents();
-        Busca  b= new Busca();
-        List<InventarioA> lista= b.busca_A_D();
+        List<InventarioA> lista= ls;
         int id, galga_men, galga_may,nivel,cantidad;
         double credito, precio;
         String nombre, maquinas, tamano;
@@ -148,7 +148,7 @@ public class Aujas_D extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +161,7 @@ public class Aujas_D extends javax.swing.JFrame {
                     .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
@@ -227,20 +227,21 @@ public class Aujas_D extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Aujas_D.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(R_BAD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Aujas_D.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(R_BAD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Aujas_D.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(R_BAD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Aujas_D.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(R_BAD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Aujas_D().setVisible(true);
+                List<InventarioA> ls = new ArrayList();
+                new R_BAD(ls).setVisible(true);
             }
         });
     }
