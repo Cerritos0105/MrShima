@@ -539,5 +539,36 @@ public class Busca {
         }
         return T;
     }
+    public List<InventarioB> busca_B(){
+        List<InventarioB> T = new ArrayList<>();
+         try (Connection conn = conexion.getConnection()) {
+            // Consulta SQL
+            String consulta = "select * from Invetario_b where estado= true;";
+            Statement stmn = conn.createStatement();
+            ResultSet rs = stmn.executeQuery(consulta);
+
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String etiqueta = rs.getString("etiquera");
+                int cantidad = rs.getInt("cantidad");
+                double precio = rs.getDouble("precio");
+                double credito = rs.getDouble("credito");
+                String desc = rs.getString("descripcion");
+                String maquinas = rs.getString("Maquinas");
+                int galga_men = rs.getInt("galga_men");
+                int galga_may = rs.getInt("galga_mayor");
+                int nivel = rs.getInt("nivel");
+                String unidad = rs.getString("unidad");
+                
+
+                InventarioB producto = new InventarioB(id,etiqueta, cantidad, precio, credito, desc, maquinas,galga_men, galga_may, nivel, unidad);
+                T.add(producto);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al buscar Produto: " + e.getMessage());
+        }
+        return T;
+    }
 
 }
