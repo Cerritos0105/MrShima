@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Menu.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Agregar_Bordadora.java</file>
             <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Bordaodoras.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Tegedoras.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Modificar_Bor.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Modoficar_T.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Back_end/Modificar.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Objetos/BordadoraO.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Back_end/ObtenerD.java</file>
+            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Agregar_Bordadora.java</file>
+            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Buscar_B.java</file>
+            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Buscar_T.java</file>
+            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Resultado_B_T.java</file>
+            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Resultado_B_B.java</file>
         </group>
     </open-files>
 </project-private>
