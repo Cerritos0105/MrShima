@@ -4,6 +4,11 @@
  */
 package Paneles;
 
+import Back_end.Busca;
+import Objetos.*;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author lupit
@@ -13,8 +18,60 @@ public class Refacciones_V extends javax.swing.JFrame {
     /**
      * Creates new form Refacciones_V
      */
+    int Tabla_Id=0;
+    double precio=0;
+    int cantidado=0;
+    double credito=0;
     public Refacciones_V() {
         initComponents();
+        Busca  b= new Busca();
+        List<InventarioB> lista= b.busca_B();
+        int id, cantidad,galga_men, galga_may,nivel;
+        String etiqueta, maquinas,  unidad;
+        double precio, credito;
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Etiqueta");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Credito");
+        modelo.addColumn("Maquinas");
+        modelo.addColumn("Galaga Menor");
+        modelo.addColumn("Galga Mayor");
+        modelo.addColumn("Nivel");
+        modelo.addColumn("Unidad");
+        
+        while(!lista.isEmpty()){
+            id= lista.getFirst().getID();
+            etiqueta = lista.getFirst().getEtiqueta();
+            cantidad = lista.getFirst().getCantidad();
+            precio= lista.getFirst().getPrecio();
+            credito = lista.getFirst().getCredito();
+            maquinas = lista.getFirst().getMaquinas();
+            galga_may = lista.getFirst().getGalga_may();
+            galga_men = lista.getFirst().getGalga_men();
+            nivel = lista.getFirst().getNivel();
+            unidad = lista.getFirst().getUnidad();
+            String[] datos = {
+                String.valueOf(id),
+                etiqueta,
+                String.valueOf(cantidad),
+                String.valueOf(precio),
+                String.valueOf(credito),
+                maquinas,
+                String.valueOf(galga_men),
+                String.valueOf(galga_may),
+                String.valueOf(nivel),
+                String.valueOf(cantidad),
+                unidad
+            };
+            System.out.println(lista.getFirst().getID());
+            lista.removeFirst();
+            modelo.addRow(datos);
+    
+        }
+        listaUser.setModel(modelo);
+
     }
 
     /**
@@ -31,6 +88,8 @@ public class Refacciones_V extends javax.swing.JFrame {
         button3 = new java.awt.Button();
         button4 = new java.awt.Button();
         button5 = new java.awt.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaUser = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,22 +123,43 @@ public class Refacciones_V extends javax.swing.JFrame {
 
         button5.setLabel("Eliminar");
 
+        listaUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id", "Nombre", "Apellido", "Cargo"
+            }
+        ));
+        listaUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaUserMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listaUser);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114)
+                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101)
+                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +171,9 @@ public class Refacciones_V extends javax.swing.JFrame {
                     .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(521, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
 
         pack();
@@ -121,6 +203,16 @@ public class Refacciones_V extends javax.swing.JFrame {
         br.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button4ActionPerformed
+
+    private void listaUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaUserMouseClicked
+        int row = listaUser.getSelectedRow();
+        DefaultTableModel model  = (DefaultTableModel)listaUser.getModel();
+
+        Tabla_Id = Integer.parseInt((String) model.getValueAt(row, 0));
+        precio = Double.parseDouble((String) model.getValueAt(row, 2));
+        cantidado=Integer.parseInt((String) model.getValueAt(row, 8));
+        credito = Double.parseDouble((String) model.getValueAt(row, 3));
+    }//GEN-LAST:event_listaUserMouseClicked
 
     /**
      * @param args the command line arguments
@@ -163,5 +255,7 @@ public class Refacciones_V extends javax.swing.JFrame {
     private java.awt.Button button3;
     private java.awt.Button button4;
     private java.awt.Button button5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable listaUser;
     // End of variables declaration//GEN-END:variables
 }

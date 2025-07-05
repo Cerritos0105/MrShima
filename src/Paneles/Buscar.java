@@ -213,6 +213,8 @@ public class Buscar extends javax.swing.JFrame {
         Busca b = new Busca();
         R_BA rba = new R_BA(b.buscarInventarioA(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Double.parseDouble(txtCredito.getText()), txtMaquinas.getText(),
                 Integer.parseInt(txtGalga_Menor.getText()), Integer.parseInt(txtGalga_Mayor.getText()), Integer.parseInt(txtNivel.getText()), Integer.parseInt(txtCantidad.getText()), txtTamano.getText()));
+        rba.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_button2ActionPerformed
 
     /**

@@ -1,6 +1,7 @@
 package Back_end;
 
 import Api.Conexion;
+import Objetos.BordadoraO;
 import Objetos.TegedorasO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,4 +45,36 @@ public class ObtenerD {
         }
         return x;
     }
+    
+    public BordadoraO obtenerB(String id) {
+    BordadoraO b = null;
+    try (Connection conn = conexion.getConnection()) {
+        String sql = "SELECT * FROM bordadora WHERE ID = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                b = new BordadoraO(
+                    rs.getString("marca"),
+                    rs.getDouble("precio"),
+                    rs.getString("area"),
+                    rs.getInt("cabezas"),
+                    rs.getInt("colores"),
+                    rs.getDouble("credito"),
+                    rs.getString("propietario"),
+                    rs.getString("numero_serie"),
+                    rs.getString("accesorios"),
+                    rs.getInt("anio"),
+                    rs.getDouble("saldo")
+                );
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Error al obtener la bordadora: " + e.getMessage());
+    }
+    return b;
+}
+
+
 }

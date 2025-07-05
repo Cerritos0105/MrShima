@@ -38,7 +38,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="380" max="-2" attributes="0"/>
-              <Component id="button5" min="-2" max="-2" attributes="0"/>
+              <Component id="btnExel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -57,7 +57,7 @@
                   <Component id="button4" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-              <Component id="button5" min="-2" max="-2" attributes="0"/>
+              <Component id="btnExel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -100,11 +100,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button4ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="java.awt.Button" name="button5">
+    <Component class="java.awt.Button" name="btnExel">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="btnGenerar"/>
         <Property name="label" type="java.lang.String" value="Generar Exel"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExelActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

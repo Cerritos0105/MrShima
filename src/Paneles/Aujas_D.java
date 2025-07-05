@@ -4,6 +4,11 @@
  */
 package Paneles;
 
+import Back_end.*;
+import Objetos.InventarioA;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author lupit
@@ -13,8 +18,54 @@ public class Aujas_D extends javax.swing.JFrame {
     /**
      * Creates new form Aujas_D
      */
+    int Tabla_Id=0;
+    double precio=0;
+    int cantidado=0;
+    double credito=0;
     public Aujas_D() {
         initComponents();
+        Busca  b= new Busca();
+        List<InventarioA> lista= b.busca_A_D();
+        int id, galga_men, galga_may,nivel,cantidad;
+        double credito, precio;
+        String nombre, maquinas, tamano;
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Credito");
+        modelo.addColumn("Maquinas");
+        modelo.addColumn("Galga Menor");
+        modelo.addColumn("Galaga Mayor");
+        modelo.addColumn("Nivel");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Tamaño");
+        while(!lista.isEmpty()){
+            id= lista.getFirst().getID();
+            galga_men = lista.getFirst().getGalta_men();
+            galga_may = lista.getFirst().getGaslga_may();
+            credito = lista.getFirst().getCredito();
+            nivel = lista.getFirst().getNivel();
+            cantidad = lista.getFirst().getCantidad();
+            nombre = lista.getFirst().getNomabre();
+            maquinas = lista.getFirst().getMaquias();
+            tamano = lista.getFirst().getTamano();
+            String[] datos = {
+                String.valueOf(id),
+                nombre,
+                String.valueOf(credito),
+                maquinas,
+                String.valueOf(galga_men),
+                String.valueOf(galga_may),
+                String.valueOf(nivel),
+                String.valueOf(cantidad),
+                tamano
+            };
+            System.out.println(lista.getFirst().getID());
+            lista.removeFirst();
+            modelo.addRow(datos);
+    
+        }
+        listaUser.setModel(modelo);
     }
 
     /**
@@ -28,13 +79,13 @@ public class Aujas_D extends javax.swing.JFrame {
 
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
-        button6 = new java.awt.Button();
         button7 = new java.awt.Button();
-        button8 = new java.awt.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaUser = new javax.swing.JTable();
+        button5 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        button1.setActionCommand("");
         button1.setLabel("Volver");
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,13 +100,6 @@ public class Aujas_D extends javax.swing.JFrame {
             }
         });
 
-        button6.setLabel("Modificar");
-        button6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button6ActionPerformed(evt);
-            }
-        });
-
         button7.setLabel("Buscar");
         button7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,36 +107,61 @@ public class Aujas_D extends javax.swing.JFrame {
             }
         });
 
-        button8.setLabel("Eliminar");
+        listaUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id", "Nombre", "Apellido", "Cargo"
+            }
+        ));
+        listaUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaUserMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listaUser);
+
+        button5.setLabel("Eliminar");
+        button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(button7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104)
+                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(141, 141, 141)
+                        .addComponent(button7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(453, Short.MAX_VALUE))
+                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,22 +174,41 @@ public class Aujas_D extends javax.swing.JFrame {
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        Agregar_A_A aaa = new Agregar_A_A();
-        aaa.setVisible(true);
-        this.setVisible(false);
+        if(Tabla_Id ==0){
+            System.out.println("Seleccione un producto");
+        }else{
+            Agregar_A_A aaa = new Agregar_A_A(Tabla_Id);
+            aaa.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_button2ActionPerformed
-
-    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
-        Modificar_A_D maa = new Modificar_A_D();
-        maa.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_button6ActionPerformed
 
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         Busca_A_D bad = new Busca_A_D();
         bad.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button7ActionPerformed
+
+    private void listaUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaUserMouseClicked
+        int row = listaUser.getSelectedRow();
+        DefaultTableModel model  = (DefaultTableModel)listaUser.getModel();
+
+        Tabla_Id = Integer.parseInt((String) model.getValueAt(row, 0));
+        cantidado=Integer.parseInt((String) model.getValueAt(row, 7));
+        credito = Double.parseDouble((String) model.getValueAt(row, 2));
+    }//GEN-LAST:event_listaUserMouseClicked
+
+    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
+        if(Tabla_Id == 0){
+            System.out.println("Favor de seleccionar un Producto");
+        }else{
+            Eliminar e= new Eliminar();
+            e.Inventario_A(Tabla_Id);
+            Aujas_D as = new Aujas_D();
+            as.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_button5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,8 +248,9 @@ public class Aujas_D extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
     private java.awt.Button button2;
-    private java.awt.Button button6;
+    private java.awt.Button button5;
     private java.awt.Button button7;
-    private java.awt.Button button8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable listaUser;
     // End of variables declaration//GEN-END:variables
 }

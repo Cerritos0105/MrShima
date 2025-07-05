@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Paneles;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import Back_end.*;
 
 /**
  *
@@ -13,6 +16,7 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    Exel e = new Exel();
     public Menu() {
         initComponents();
     }
@@ -30,7 +34,7 @@ public class Menu extends javax.swing.JFrame {
         button2 = new java.awt.Button();
         button3 = new java.awt.Button();
         button4 = new java.awt.Button();
-        button5 = new java.awt.Button();
+        btnExel = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,8 +70,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        button5.setActionCommand("btnGenerar");
-        button5.setLabel("Generar Exel");
+        btnExel.setActionCommand("btnGenerar");
+        btnExel.setLabel("Generar Exel");
+        btnExel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,7 +94,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(132, 132, 132))
             .addGroup(layout.createSequentialGroup()
                 .addGap(380, 380, 380)
-                .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,7 +109,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
-                .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
 
@@ -114,7 +123,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_button3ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
-        Menu_B mb = new Menu_B();
+        MenuB mb = new MenuB();
         mb.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button4ActionPerformed
@@ -130,6 +139,10 @@ public class Menu extends javax.swing.JFrame {
         mr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button2ActionPerformed
+
+    private void btnExelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExelActionPerformed
+        e.exportarTodoExcel();
+    }//GEN-LAST:event_btnExelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,10 +180,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button btnExel;
     private java.awt.Button button1;
     private java.awt.Button button2;
     private java.awt.Button button3;
     private java.awt.Button button4;
-    private java.awt.Button button5;
     // End of variables declaration//GEN-END:variables
 }
