@@ -25,21 +25,27 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="709" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="button1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="button2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="button3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="button3" min="-2" max="-2" attributes="0"/>
+                          <Component id="button6" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="button4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Component id="button5" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="709" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="button7" min="-2" max="-2" attributes="0"/>
+                          <Component id="button5" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="83" max="32767" attributes="0"/>
@@ -57,7 +63,12 @@
                   <Component id="button2" min="-2" max="-2" attributes="0"/>
                   <Component id="button1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="button6" min="-2" max="-2" attributes="0"/>
+                  <Component id="button7" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -131,5 +142,23 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="java.awt.Button" name="button6">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="btnVolver"/>
+        <Property name="label" type="java.lang.String" value="Vender a contado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button6ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Button" name="button7">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="btnVolver"/>
+        <Property name="label" type="java.lang.String" value="Vender a credito"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button7ActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

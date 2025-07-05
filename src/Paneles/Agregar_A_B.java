@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Paneles;
-
+import Back_end.*;
 /**
  *
  * @author lupit
@@ -13,8 +13,14 @@ public class Agregar_A_B extends javax.swing.JFrame {
     /**
      * Creates new form Agregar_A_B
      */
-    public Agregar_A_B() {
+    int idp=0;
+    public Agregar_A_B(int id) {
         initComponents();
+        idp=id;
+    }
+
+    private Agregar_A_B() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -27,6 +33,10 @@ public class Agregar_A_B extends javax.swing.JFrame {
     private void initComponents() {
 
         button1 = new java.awt.Button();
+        button2 = new java.awt.Button();
+        label1 = new java.awt.Label();
+        txtC = new java.awt.TextField();
+        label2 = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,6 +47,23 @@ public class Agregar_A_B extends javax.swing.JFrame {
             }
         });
 
+        button2.setLabel("Agregar");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
+
+        label1.setText("Cantidad");
+
+        txtC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCActionPerformed(evt);
+            }
+        });
+
+        label2.setText("$");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -45,6 +72,20 @@ public class Agregar_A_B extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(664, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(261, 261, 261)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(97, 97, 97)
+                            .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtC, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(262, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,6 +93,16 @@ public class Agregar_A_B extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(502, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(164, 164, 164)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(164, 164, 164)
+                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(164, Short.MAX_VALUE)))
         );
 
         pack();
@@ -62,6 +113,20 @@ public class Agregar_A_B extends javax.swing.JFrame {
         bd.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        String a = txtC.getText();
+        if(a.isEmpty() || a.equals("0") || a.charAt(0)=='-'){
+            System.out.println("Coloque una cantidad valida");
+        }else{
+            Modificar m = new Modificar();
+            m.Agregrar_Abono_B(idp, Double.parseDouble(a));
+        }
+    }//GEN-LAST:event_button2ActionPerformed
+
+    private void txtCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,5 +165,9 @@ public class Agregar_A_B extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
+    private java.awt.Button button2;
+    private java.awt.Label label1;
+    private java.awt.Label label2;
+    private java.awt.TextField txtC;
     // End of variables declaration//GEN-END:variables
 }

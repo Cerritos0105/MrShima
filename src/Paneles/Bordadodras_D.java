@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Paneles;
+import Objetos.BordadoraO;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import Back_end.*;
 
 /**
  *
@@ -10,12 +14,58 @@ package Paneles;
  */
 public class Bordadodras_D extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Bordadodras_D
-     */
+    int Tabla_Id = 0;
+
     public Bordadodras_D() {
         initComponents();
+        Buscar_Bordadora buscador = new Buscar_Bordadora();
+        List<BordadoraO> lista = buscador.busca_D();
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Área");
+        modelo.addColumn("Cabezas");
+        modelo.addColumn("Colores");
+        modelo.addColumn("Crédito");
+        modelo.addColumn("Propietario");
+        modelo.addColumn("Número Serie");
+        modelo.addColumn("Accesorios");
+        modelo.addColumn("Año");
+        modelo.addColumn("Saldo");
+
+        for (BordadoraO b : lista) {
+            String[] datos = {
+                String.valueOf(b.getId()),
+                b.getMarca(),
+                String.valueOf(b.getPrecio()),
+                b.getArea(),
+                String.valueOf(b.getCabezas()),
+                String.valueOf(b.getColores()),
+                String.valueOf(b.getCredito()),
+                b.getPropietario(),
+                b.getNumeroSerie(),
+                b.getAccesorios(),
+                String.valueOf(b.getAnio()),
+                String.valueOf(b.getSaldo())
+            };
+            modelo.addRow(datos);
+        }
+
+        listaUser.setModel(modelo);
+
+        // Selección de fila: guardar ID al hacer clic
+        listaUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = listaUser.getSelectedRow();
+                if (row >= 0) {
+                    Tabla_Id = Integer.parseInt(listaUser.getModel().getValueAt(row, 0).toString());
+                }
+            }
+        });
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,6 +81,8 @@ public class Bordadodras_D extends javax.swing.JFrame {
         button3 = new java.awt.Button();
         button4 = new java.awt.Button();
         button5 = new java.awt.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaUser = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +101,11 @@ public class Bordadodras_D extends javax.swing.JFrame {
         });
 
         button3.setLabel("Eliminar");
+        button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button3ActionPerformed(evt);
+            }
+        });
 
         button4.setLabel("Agregar Abono");
         button4.addActionListener(new java.awt.event.ActionListener() {
@@ -64,22 +121,40 @@ public class Bordadodras_D extends javax.swing.JFrame {
             }
         });
 
+        listaUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(listaUser);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +166,9 @@ public class Bordadodras_D extends javax.swing.JFrame {
                     .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -116,10 +193,26 @@ public class Bordadodras_D extends javax.swing.JFrame {
     }//GEN-LAST:event_button2ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
-        Agregar_A_B  aab = new Agregar_A_B();
-        aab.setVisible(true);
-        this.setVisible(false);
+        if(Tabla_Id==0){
+            System.out.println("Selecione un producto");
+        }else{
+            Agregar_A_B  aab = new Agregar_A_B(Tabla_Id);
+            aab.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_button4ActionPerformed
+
+    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+        if(Tabla_Id==0){
+            System.out.println("Selecione un producto");
+        }else{
+           Modificar m = new Modificar();
+           m.RegresarB(Tabla_Id);
+           Bordadodras_D bd = new Bordadodras_D();
+           bd.setVisible(true);
+           this.setVisible(false);
+        }
+    }//GEN-LAST:event_button3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,5 +255,7 @@ public class Bordadodras_D extends javax.swing.JFrame {
     private java.awt.Button button3;
     private java.awt.Button button4;
     private java.awt.Button button5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable listaUser;
     // End of variables declaration//GEN-END:variables
 }

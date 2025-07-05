@@ -6,6 +6,7 @@ package Paneles;
 
 import Back_end.*;
 import Objetos.*;
+import java.sql.SQLException;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -253,8 +254,12 @@ public class Aujas extends javax.swing.JFrame {
         if(Tabla_Id == 0){
             System.out.println("Favor de seleccionar un Producto");
         }else{
-            Eliminar e= new Eliminar();
-            e.Inventario_A(Tabla_Id);
+            Eliminar e = new Eliminar();
+            try {
+                e.Inventario_A(String.valueOf(Tabla_Id));
+            } catch (SQLException ex) {
+                System.getLogger(Aujas.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
             Aujas as = new Aujas();
             as.setVisible(true);
             this.setVisible(false);

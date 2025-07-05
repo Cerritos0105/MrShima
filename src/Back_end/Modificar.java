@@ -122,6 +122,7 @@ public class Modificar {
         }
     }
 
+
     public void Agregrar_Abono_A(int ID, double cantidad) {
         double precio = 0; 
         try (Connection conn = conexion.getConnection()) {
@@ -150,11 +151,11 @@ public class Modificar {
             System.out.println("Error al vender la tejedora: " + e.getMessage());
         }
     }
-    public void Modificar_Bor(String marca, double precio, String area, int cabezas, int colores,
-                          double credito, String propietario, String serie, String accesorios,
+    public void Modificar_Bor(int id, String marca, double precio, String area, int cabezas, int colores,
+                          double credito, String propietario, String numeroSerie, String accesorios,
                           int anio, double saldo) {
     try (Connection conn = conexion.getConnection()) {
-        String sql = "UPDATE bordadora SET marca = ?, precio = ?, area = ?, cabezas = ?, colores = ?, credito = ?, propietario = ?, accesorios = ?, anio = ?, saldo = ? WHERE serie = ?";
+        String sql = "UPDATE bordadora SET marca = ?, precio = ?, area = ?, cabezas = ?, colores = ?, credito = ?, propietario = ?, numero_serie = ?, accesorios = ?, anio = ?, saldo = ? WHERE ID = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, marca);
             pstmt.setDouble(2, precio);
@@ -163,16 +164,60 @@ public class Modificar {
             pstmt.setInt(5, colores);
             pstmt.setDouble(6, credito);
             pstmt.setString(7, propietario);
-            pstmt.setString(8, accesorios);
-            pstmt.setInt(9, anio);
-            pstmt.setDouble(10, saldo);
-            pstmt.setString(11, serie); // WHERE
+            pstmt.setString(8, numeroSerie);
+            pstmt.setString(9, accesorios);
+            pstmt.setInt(10, anio);
+            pstmt.setDouble(11, saldo);
+            pstmt.setInt(12, id); // 🔁 Aquí va el ID en el WHERE
             pstmt.executeUpdate();
-            System.out.println("Bordadora modificada con éxito.");
+            System.out.println("✅ Bordadora modificada con éxito.");
         }
     } catch (Exception e) {
         e.printStackTrace();
-        System.out.println("Error al modificar la bordadora: " + e.getMessage());
+        System.out.println("❌ Error al modificar la bordadora: " + e.getMessage());
     }
 }
+    
+    
+    public void Agregrar_Abono_B(int ID, double cantidad) {
+        double precio = 0;
+        try (Connection conn = conexion.getConnection()) {
+
+            // Obtener precio
+            String consultaSelect = "SELECT credito FROM bordadora WHERE ID = ?;";
+            try (PreparedStatement pstmt = conn.prepareStatement(consultaSelect)) {
+                pstmt.setInt(1, ID);
+                ResultSet rs = pstmt.executeQuery();
+
+                if (rs.next()) {
+                    precio = rs.getDouble("credito");
+                }
+            }
+            System.out.println(precio);
+            precio-=cantidad;
+            String consultaUpdate = "UPDATE bordadora SET credito = ? WHERE ID = ?;";
+            try (PreparedStatement pstmt = conn.prepareStatement(consultaUpdate)) {
+                pstmt.setDouble(1, precio); 
+                pstmt.setInt(2, ID);
+                pstmt.executeUpdate();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al vender la bordadora: " + e.getMessage());
+        }
+    }
+    public void RegresarB(int ID){
+         try (Connection conn = conexion.getConnection()) {
+                   String consulta = "update bordadora set estado = true where ID = ?;";
+                   try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                       pstmt.setInt(1, ID);  
+                       pstmt.executeUpdate();
+                       //System.out.println("Usuario Registrado");
+                   }
+               } catch (Exception e) {
+                   e.printStackTrace(); 
+                        System.out.println( "Error al Regresar la bordadora: " + e.getMessage());
+               }
+     }
 }

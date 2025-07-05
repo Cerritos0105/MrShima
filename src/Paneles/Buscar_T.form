@@ -240,6 +240,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="aniotxt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aniotxtActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Label" name="label9">
       <Properties>

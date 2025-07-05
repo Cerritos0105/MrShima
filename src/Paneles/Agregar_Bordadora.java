@@ -15,20 +15,31 @@ public class Agregar_Bordadora extends javax.swing.JFrame {
      */
     public Agregar_Bordadora() {
         initComponents();
+        jTextField1.setText("");  // Marca (texto)
+    jTextField2.setText("0.0");  // Precio (double)
+    jTextField3.setText("");  // Área (texto)
+    jTextField4.setText("0");  // Cabezas (int)
+    jTextField5.setText("0");  // Colores (int)
+    jTextField6.setText("0.0");  // Crédito (double)
+    jTextField7.setText("");  // Propietario (texto)
+    jTextField9.setText("");  // Número de serie (texto)
+    jTextField10.setText("");  // Accesorios (texto)
+    jTextField11.setText("0");  // Año (int)
+    jTextField12.setText("0.0");  // Saldo (double)
     }
     
     private void limpiarCampos() {
-    jTextField1.setText("");  // marca
-    jTextField2.setText("");  // precio
-    jTextField3.setText("");  // área
-    jTextField4.setText("");  // cabezas
-    jTextField5.setText("");  // colores
-    jTextField6.setText("");  // crédito
-    jTextField7.setText("");  // propietario
-    jTextField9.setText("");  // número de serie
-    jTextField10.setText(""); // accesorios
-    jTextField11.setText(""); // año
-    jTextField12.setText(""); // saldo
+    jTextField1.setText("");  // Marca (texto)
+    jTextField2.setText("0.0");  // Precio (double)
+    jTextField3.setText("");  // Área (texto)
+    jTextField4.setText("0");  // Cabezas (int)
+    jTextField5.setText("0");  // Colores (int)
+    jTextField6.setText("0.0");  // Crédito (double)
+    jTextField7.setText("");  // Propietario (texto)
+    jTextField9.setText("");  // Número de serie (texto)
+    jTextField10.setText("");  // Accesorios (texto)
+    jTextField11.setText("0");  // Año (int)
+    jTextField12.setText("0.0");  // Saldo (double)
 }
 
     

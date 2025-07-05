@@ -5,6 +5,7 @@
 package Paneles;
 import Back_end.*;
 import Objetos.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -218,7 +219,11 @@ public class R_BA extends javax.swing.JFrame {
             System.out.println("Favor de seleccionar un Producto");
         }else{
             Eliminar e= new Eliminar();
-            e.Inventario_A(Tabla_Id);
+            try {
+                e.Inventario_A(String.valueOf(Tabla_Id));
+            } catch (SQLException ex) {
+                System.getLogger(R_BA.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
             Aujas as = new Aujas();
             as.setVisible(true);
             this.setVisible(false);
