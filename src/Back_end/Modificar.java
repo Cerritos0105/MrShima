@@ -146,7 +146,51 @@ public class Modificar {
         System.out.println("❌ Error al modificar la bordadora: " + e.getMessage());
     }
 }
+    
+    
+    public void Agregrar_Abono_B(int ID, double cantidad) {
+        double precio = 0;
+        try (Connection conn = conexion.getConnection()) {
 
+            // Obtener precio
+            String consultaSelect = "SELECT credito FROM bordadora WHERE ID = ?;";
+            try (PreparedStatement pstmt = conn.prepareStatement(consultaSelect)) {
+                pstmt.setInt(1, ID);
+                ResultSet rs = pstmt.executeQuery();
+
+                if (rs.next()) {
+                    precio = rs.getDouble("credito");
+                }
+            }
+            System.out.println(precio);
+            precio-=cantidad;
+            String consultaUpdate = "UPDATE bordadora SET credito = ? WHERE ID = ?;";
+            try (PreparedStatement pstmt = conn.prepareStatement(consultaUpdate)) {
+                pstmt.setDouble(1, precio); 
+                pstmt.setInt(2, ID);
+                pstmt.executeUpdate();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al vender la bordadora: " + e.getMessage());
+        }
+    }
+    public void RegresarB(int ID){
+         try (Connection conn = conexion.getConnection()) {
+                   String consulta = "update bordadora set estado = true where ID = ?;";
+                   try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                       pstmt.setInt(1, ID);  
+                       pstmt.executeUpdate();
+                       //System.out.println("Usuario Registrado");
+                   }
+               } catch (Exception e) {
+                   e.printStackTrace(); 
+                        System.out.println( "Error al Regresar la bordadora: " + e.getMessage());
+               }
+     }
+    
+    
     public void Modificar_Bor(String text, double parseDouble, String text0, int parseInt, int parseInt0, double parseDouble0, String text1, String text2, String text3, int parseInt1, double parseDouble1) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

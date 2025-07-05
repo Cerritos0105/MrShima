@@ -235,7 +235,7 @@ public class Buscar_B extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCabezasActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        Buscar_Bordadora buscador = new Buscar_Bordadora();
+       Busca buscador = new Busca();
 
     String marca       = txtmarca.getText().strip();
     String area        = txtArea.getText().strip();
@@ -243,22 +243,24 @@ public class Buscar_B extends javax.swing.JFrame {
     String numeroSerie = txtSerie.getText().strip();
     String accesorios  = txtAccesorios.getText().strip();
 
-    Double precio  = txtprecio.getText().isBlank()  ? null : Double.parseDouble(txtprecio.getText());
-    Integer cabezas= txtCabezas.getText().isBlank() ? null : Integer.parseInt(txtCabezas.getText());
-    Integer colores= txtColores.getText().isBlank() ? null : Integer.parseInt(txtColores.getText());
-    Double credito = txtCredito.getText().isBlank() ? null : Double.parseDouble(txtCredito.getText());
-    Integer anio   = txtAnio.getText().isBlank()    ? null : Integer.parseInt(txtAnio.getText());
-    Double saldo   = txtSaldo.getText().isBlank()   ? null : Double.parseDouble(txtSaldo.getText());
+    Double precio   = txtprecio.getText().isBlank()   ? null : Double.parseDouble(txtprecio.getText());
+    Integer cabezas = txtCabezas.getText().isBlank()  ? null : Integer.parseInt(txtCabezas.getText());
+    Integer colores = txtColores.getText().isBlank()  ? null : Integer.parseInt(txtColores.getText());
+    Double credito  = txtCredito.getText().isBlank()  ? null : Double.parseDouble(txtCredito.getText());
+    Integer anio    = txtAnio.getText().isBlank()     ? null : Integer.parseInt(txtAnio.getText());
+    Double saldo    = txtSaldo.getText().isBlank()    ? null : Double.parseDouble(txtSaldo.getText());
 
-    // Puedes pasar true si solo quieres buscar activas, o null si no importa
     List<BordadoraO> resultados = buscador.buscarBordadoras(
         marca, precio, area, cabezas, colores, credito,
         propietario, numeroSerie, accesorios, anio, saldo, null
     );
 
-    Resultado_B_B r = new Resultado_B_B(resultados);
-    r.setVisible(true);
-    this.dispose();
+    if (!resultados.isEmpty()) {
+        Resultado_B_B ventana = new Resultado_B_B(resultados);
+        ventana.setVisible(true); // Abrir ventana
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(null, "No se encontraron resultados.");
+    }
     }//GEN-LAST:event_button2ActionPerformed
 
     /**

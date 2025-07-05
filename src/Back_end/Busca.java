@@ -295,97 +295,107 @@ public class Busca {
         return productos;
     }
     
-    public List<BordadoraO> buscarBordadoras(String marca, double precio, String area, int cabezas, int colores,
-                                         double credito, String propietario, String numeroSerie, String accesorios,
-                                         int anio, double saldo) {
-    List<BordadoraO> productos = new ArrayList<>();
-    try (Connection conn = conexion.getConnection()) {
-        String consulta = "SELECT * FROM bordadora WHERE estado = true";
+    
+    // Busca sin filtros (activas)
+    public List<BordadoraO> buscarActivas() {
+        return buscarBordadoras(null, null, null, null, null, null, null, null, null, null, null, true);
+    }
+
+    // Búsqueda con filtros opcionales
+    public List<BordadoraO> buscarBordadoras(
+        String marca,        Double precio,    String area,
+        Integer cabezas,     Integer colores,  Double credito,
+        String propietario,  String numeroSerie, String accesorios,
+        Integer anio,        Double saldo,     Boolean estado
+    ) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM bordadora WHERE 1=1");
         List<Object> params = new ArrayList<>();
-        
-        if (!marca.isEmpty()) {
-            consulta += " AND marca LIKE ?";
+
+        if (marca != null && !marca.isBlank()) {
+            sql.append(" AND marca LIKE ?");
             params.add("%" + marca + "%");
         }
-        if (precio > 0) {
-            consulta += " AND precio <= ?";
+        if (precio != null) {
+            sql.append(" AND precio = ?");
             params.add(precio);
         }
-        if (!area.isEmpty()) {
-            consulta += " AND area LIKE ?";
+        if (area != null && !area.isBlank()) {
+            sql.append(" AND area LIKE ?");
             params.add("%" + area + "%");
         }
-        if (cabezas > 0) {
-            consulta += " AND cabezas = ?";
+        if (cabezas != null) {
+            sql.append(" AND cabezas = ?");
             params.add(cabezas);
         }
-        if (colores > 0) {
-            consulta += " AND colores = ?";
+        if (colores != null) {
+            sql.append(" AND colores = ?");
             params.add(colores);
         }
-        if (credito > 0) {
-            consulta += " AND credito <= ?";
+        if (credito != null) {
+            sql.append(" AND credito = ?");
             params.add(credito);
         }
-        if (!propietario.isEmpty()) {
-            consulta += " AND propietario LIKE ?";
+        if (propietario != null && !propietario.isBlank()) {
+            sql.append(" AND propietario LIKE ?");
             params.add("%" + propietario + "%");
         }
-        if (!numeroSerie.isEmpty()) {
-            consulta += " AND numero_serie LIKE ?";
+        if (numeroSerie != null && !numeroSerie.isBlank()) {
+            sql.append(" AND numero_serie LIKE ?");
             params.add("%" + numeroSerie + "%");
         }
-        if (!accesorios.isEmpty()) {
-            consulta += " AND accesorios LIKE ?";
+        if (accesorios != null && !accesorios.isBlank()) {
+            sql.append(" AND accesorios LIKE ?");
             params.add("%" + accesorios + "%");
         }
-        if (anio > 0) {
-            consulta += " AND anio = ?";
+        if (anio != null) {
+            sql.append(" AND anio = ?");
             params.add(anio);
         }
-        if (saldo > 0) {
-            consulta += " AND saldo <= ?";
+        if (saldo != null) {
+            sql.append(" AND saldo = ?");
             params.add(saldo);
         }
-
-        try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
-            for (int i = 0; i < params.size(); i++) {
-                pstmt.setObject(i + 1, params.get(i));
-            }
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                while (rs.next()) {
-                    BordadoraO b = new BordadoraO(
-                        rs.getInt("ID"),
-                        rs.getDouble("precio"),
-                        rs.getDouble("credito"),
-                        rs.getString("accesorios"),
-                        rs.getInt("anio"),
-                        rs.getString("area"),
-                        rs.getInt("colores"),
-                        rs.getInt("cabezas"),
-                        rs.getString("marca"),
-                        rs.getString("numero_serie"),
-                        rs.getBoolean("estado"),
-                        rs.getDouble("saldo"),
-                        rs.getString("propietario")
-                    );
-                    productos.add(b);
-                }
-            }
+        if (estado != null) {
+            sql.append(" AND estado = ?");
+            params.add(estado);
         }
 
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println("❌ Error al buscar bordadoras: " + e.getMessage());
-    }
+        List<BordadoraO> lista = new ArrayList<>();
 
-    if (productos.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "No se encontraron coincidencias en bordadoras.");
-    }
+        try (Connection conn = conexion.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql.toString())) {
 
-    return productos;
-}
+            for (int i = 0; i < params.size(); i++) {
+                ps.setObject(i + 1, params.get(i));
+            }
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                BordadoraO b = new BordadoraO(
+                    rs.getInt("ID"),
+                    rs.getDouble("precio"),
+                    rs.getDouble("credito"),
+                    rs.getString("accesorios"),
+                    rs.getInt("anio"),
+                    rs.getString("area"),
+                    rs.getInt("colores"),
+                    rs.getInt("cabezas"),
+                    rs.getString("marca"),
+                    rs.getString("numero_serie"),
+                    rs.getBoolean("estado"),
+                    rs.getDouble("saldo"),
+                    rs.getString("propietario")
+                );
+                lista.add(b);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al buscar bordadoras: " + e.getMessage());
+        }
+
+        return lista;
+    }
 
 
 }

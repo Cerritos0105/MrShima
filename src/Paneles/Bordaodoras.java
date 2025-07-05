@@ -30,7 +30,7 @@ public class Bordaodoras extends javax.swing.JFrame {
     }
     
     private void cargarTabla() {
-        Buscar_Bordadora buscar = new Buscar_Bordadora();
+        Busca buscar = new Busca();
         List<BordadoraO> lista = buscar.buscarActivas();
 
         DefaultTableModel modelo = new DefaultTableModel();
