@@ -56,29 +56,29 @@ public class Agregar {
     public void agregarBordadora(double precio, double credito, String accesorios, int anio, String area,
                              int colores, int cabezas, String marca, String numeroSerie,
                              boolean estado, double saldo, String propietario) {
-    try (Connection conn = conexion.getConnection()) {
-        String consulta = "INSERT INTO Bordadora (precio, credito, accesorios, anio, area, colores, cabezas, marca, numero_serie, estado, saldo, propietario) " +
-                          "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
-            pstmt.setDouble(1, precio);
-            pstmt.setDouble(2, credito);
-            pstmt.setString(3, accesorios);
-            pstmt.setInt(4, anio);
-            pstmt.setString(5, area);
-            pstmt.setInt(6, colores);
-            pstmt.setInt(7, cabezas);
-            pstmt.setString(8, marca);
-            pstmt.setString(9, numeroSerie);
-            pstmt.setBoolean(10, estado);
-            pstmt.setDouble(11, saldo);
-            pstmt.setString(12, propietario);
-            pstmt.executeUpdate();
-            System.out.println("✅ Bordadora registrada correctamente");
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "INSERT INTO Bordadora (precio, credito, accesorios, anio, area, colores, cabezas, marca, numero_serie, estado, saldo, propietario) " +
+                              "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setDouble(1, precio);
+                pstmt.setDouble(2, credito);
+                pstmt.setString(3, accesorios);
+                pstmt.setInt(4, anio);
+                pstmt.setString(5, area);
+                pstmt.setInt(6, colores);
+                pstmt.setInt(7, cabezas);
+                pstmt.setString(8, marca);
+                pstmt.setString(9, numeroSerie);
+                pstmt.setBoolean(10, estado);
+                pstmt.setDouble(11, saldo);
+                pstmt.setString(12, propietario);
+                pstmt.executeUpdate();
+                System.out.println("✅ Bordadora registrada correctamente");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("❌ Error al registrar la bordadora: " + e.getMessage());
         }
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println("❌ Error al registrar la bordadora: " + e.getMessage());
     }
-}
-
+    
 }   
