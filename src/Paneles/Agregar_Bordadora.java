@@ -263,34 +263,67 @@ public class Agregar_Bordadora extends javax.swing.JFrame {
     //Boton de agregar
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         try {
-        // Obtener datos desde los campos
-        String marca = jTextField1.getText();
-        double precio = Double.parseDouble(jTextField2.getText());
-        String area = jTextField3.getText();
-        int cabezas = Integer.parseInt(jTextField4.getText());
-        int colores = Integer.parseInt(jTextField5.getText());
-        double credito = Double.parseDouble(jTextField6.getText());
-        String propietario = jTextField7.getText();
-        String numeroSerie = jTextField9.getText();
-        String accesorios = jTextField10.getText();
-        int anio = Integer.parseInt(jTextField11.getText());
-        double saldo = Double.parseDouble(jTextField12.getText());
+    // Obtener datos desde los campos
+    String marca = jTextField1.getText();
+    String precioStr = jTextField2.getText();
+    String area = jTextField3.getText();
+    String cabezasStr = jTextField4.getText();
+    String coloresStr = jTextField5.getText();
+    String creditoStr = jTextField6.getText();
+    String propietario = jTextField7.getText();
+    String numeroSerie = jTextField9.getText();
+    String accesorios = jTextField10.getText();
+    String anioStr = jTextField11.getText();
+    String saldoStr = jTextField12.getText();
 
-        boolean estado = true; // puedes ajustar si luego hay un checkbox o campo para estado
-
-        // Instancia del backend
-        Agregar agregar = new Agregar();
-        agregar.agregarBordadora(precio, credito, accesorios, anio, area, colores, cabezas,
-                                  marca, numeroSerie, estado, saldo, propietario);
-
-        // Mostrar mensaje y limpiar
-        javax.swing.JOptionPane.showMessageDialog(this, "✅ Bordadora agregada correctamente");
-        limpiarCampos();
-
-    } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "❌ Error al agregar: " + e.getMessage());
-        e.printStackTrace();
+    // Validar que ningún campo esté vacío
+    if (marca.isEmpty() || area.isEmpty() || propietario.isEmpty() || 
+        numeroSerie.isEmpty() || accesorios.isEmpty() || 
+        precioStr.isEmpty() || cabezasStr.isEmpty() || 
+        coloresStr.isEmpty() || creditoStr.isEmpty() || 
+        anioStr.isEmpty() || saldoStr.isEmpty()) {
+        throw new Exception("❌ Todos los campos deben estar llenos");
     }
+
+    // Convertir y validar valores numéricos
+    double precio = Double.parseDouble(precioStr);
+    int cabezas = Integer.parseInt(cabezasStr);
+    int colores = Integer.parseInt(coloresStr);
+    double credito = Double.parseDouble(creditoStr);
+    int anio = Integer.parseInt(anioStr);
+    double saldo = Double.parseDouble(saldoStr);
+
+    // Validar que ningún valor numérico sea 0 y que crédito no sea 0
+    if (precio <= 0 || cabezas <= 0 || colores <= 0 || anio <= 0 || saldo <= 0) {
+        throw new Exception("❌ Ningún valor numérico puede ser 0 o negativo");
+    }
+    
+    if (credito <= 0) {
+        throw new Exception("❌ El crédito no puede ser menor e igual a 0");
+    }
+    
+    //para verificar que sea un anio valido y no quieran poner anio 0 o 2034
+    int anioActual = java.time.Year.now().getValue();
+    if (anio < 1900 || anio > anioActual + 1) {
+        throw new Exception("❌ Ingrese un anio valido");
+    }
+
+    boolean estado = true;
+
+    // Instancia del backend
+    Agregar agregar = new Agregar();
+    agregar.agregarBordadora(precio, credito, accesorios, anio, area, colores, cabezas,
+                              marca, numeroSerie, estado, saldo, propietario);
+
+    // Mostrar mensaje y limpiar
+    javax.swing.JOptionPane.showMessageDialog(this, "✅ Bordadora agregada correctamente");
+    limpiarCampos();
+
+} catch (NumberFormatException e) {
+    javax.swing.JOptionPane.showMessageDialog(this, "❌ Error: Los campos numéricos deben contener valores válidos");
+} catch (Exception e) {
+    javax.swing.JOptionPane.showMessageDialog(this, e.getMessage());
+}
         
     }//GEN-LAST:event_button1ActionPerformed
 

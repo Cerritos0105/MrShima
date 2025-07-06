@@ -218,6 +218,7 @@ public class Bordaodoras extends javax.swing.JFrame {
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         if(Tabla_Id==0){
             System.out.println("Selecione un producto");
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un producto");
         }else{
             Eliminar e = new Eliminar();
             e.Bordadora(String.valueOf(Tabla_Id));
@@ -235,6 +236,7 @@ public class Bordaodoras extends javax.swing.JFrame {
         */
         if(Tabla_Id==0){
             System.out.println("Selecione un producto");
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un producto");
         }else{
             System.out.println(Tabla_Id);
             Modificar_Bor mb = new Modificar_Bor(Tabla_Id);
@@ -252,6 +254,7 @@ public class Bordaodoras extends javax.swing.JFrame {
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         if(Tabla_Id==0){
             System.out.println("Selecione un producto");
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un producto");
         }else{
             Vender_B vb = new Vender_B(Tabla_Id);
             vb.setVisible(true);
@@ -262,6 +265,7 @@ public class Bordaodoras extends javax.swing.JFrame {
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         if(Tabla_Id==0){
             System.out.println("Selecione un producto");
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un producto");
         }else{
             Vender_B_C vbc = new Vender_B_C(Tabla_Id);
             vbc.setVisible(true);

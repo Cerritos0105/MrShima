@@ -118,9 +118,15 @@ public class Agregar_A_B extends javax.swing.JFrame {
         String a = txtC.getText();
         if(a.isEmpty() || a.equals("0") || a.charAt(0)=='-'){
             System.out.println("Coloque una cantidad valida");
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese una cantidad valida");
         }else{
             Modificar m = new Modificar();
             m.Agregrar_Abono_B(idp, Double.parseDouble(a));
+            javax.swing.JOptionPane.showMessageDialog(this, "Se agrego el abono de :  $" + txtC.getText());
+            txtC.setText("");
+            Bordadodras_D bd = new Bordadodras_D();
+            bd.setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_button2ActionPerformed
 

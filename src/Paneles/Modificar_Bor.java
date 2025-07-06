@@ -261,21 +261,73 @@ public class Modificar_Bor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField11ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-         Modificar m = new Modificar();
-    m.Modificar_Bor(
-        idBordadora,                                   // ✅ Usar ID
-        jTextField1.getText(),                         // Marca
-        Double.parseDouble(jTextField2.getText()),     // Precio
-        jTextField3.getText(),                         // Área
-        Integer.parseInt(jTextField4.getText()),       // Cabezas
-        Integer.parseInt(jTextField5.getText()),       // Colores
-        Double.parseDouble(jTextField6.getText()),     // Crédito
-        jTextField7.getText(),                         // Propietario
-        jTextField9.getText(),                         // Número de Serie
-        jTextField10.getText(),                        // Accesorios
-        Integer.parseInt(jTextField11.getText()),      // Año
-        Double.parseDouble(jTextField12.getText())     // Saldo
-    );
+         try {
+        // Validar que ningún campo esté vacío
+        if (jTextField1.getText().isEmpty() || 
+            jTextField2.getText().isEmpty() ||
+            jTextField3.getText().isEmpty() || 
+            jTextField4.getText().isEmpty() ||
+            jTextField5.getText().isEmpty() || 
+            jTextField6.getText().isEmpty() ||
+            jTextField7.getText().isEmpty() || 
+            jTextField9.getText().isEmpty() ||
+            jTextField10.getText().isEmpty() || 
+            jTextField11.getText().isEmpty() ||
+            jTextField12.getText().isEmpty()) {
+            throw new Exception("❌ Todos los campos deben estar llenos");
+        }
+
+        // Convertir y validar valores numéricos
+        double precio = Double.parseDouble(jTextField2.getText());
+        int cabezas = Integer.parseInt(jTextField4.getText());
+        int colores = Integer.parseInt(jTextField5.getText());
+        double credito = Double.parseDouble(jTextField6.getText());
+        int anio = Integer.parseInt(jTextField11.getText());
+        double saldo = Double.parseDouble(jTextField12.getText());
+
+        // Validar que ningún valor numérico sea 0 o negativo (excepto saldo que podría ser negativo)
+        if (precio <= 0 || cabezas <= 0 || colores <= 0) {
+            throw new Exception("❌ Precio, cabezas y colores no pueden ser 0 o negativo");
+        }
+        
+        if (credito <= 0) {
+            throw new Exception("❌ El crédito no puede ser 0 o negativo");
+        }
+
+        // Validar año (entre 1900 y año actual + 1 para permitir futuros)
+        int anioActual = java.time.Year.now().getValue();
+        if (anio < 1900 || anio > anioActual + 1) {
+            throw new Exception("❌ El año debe ser valido");
+        }
+        /*
+        // Validar que el saldo no sea mayor que el crédito
+        if (saldo > credito) {
+            throw new Exception("❌ El saldo no puede ser mayor que el crédito");
+        }
+        */
+        Modificar m = new Modificar();
+        m.Modificar_Bor(
+            idBordadora,                                   // ✅ Usar ID
+            jTextField1.getText(),                         // Marca
+            precio,                                       // Precio (ya validado)
+            jTextField3.getText(),                        // Área
+            cabezas,                                      // Cabezas (ya validado)
+            colores,                                      // Colores (ya validado)
+            credito,                                      // Crédito (ya validado)
+            jTextField7.getText(),                        // Propietario
+            jTextField9.getText(),                        // Número de Serie
+            jTextField10.getText(),                       // Accesorios
+            anio,                                        // Año (ya validado)
+            saldo                                        // Saldo (ya validado)
+        );
+
+        javax.swing.JOptionPane.showMessageDialog(this, "✅ Bordadora modificada correctamente");
+        
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "❌ Error: Los campos numéricos deben contener valores válidos");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, e.getMessage());
+    }
     }//GEN-LAST:event_button2ActionPerformed
 
     /**
