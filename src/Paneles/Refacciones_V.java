@@ -62,12 +62,12 @@ public class Refacciones_V extends javax.swing.JFrame {
                 String.valueOf(galga_men),
                 String.valueOf(galga_may),
                 String.valueOf(nivel),
-                String.valueOf(cantidad),
                 unidad
             };
-            System.out.println(lista.getFirst().getID());
+            System.out.println(lista.getFirst());
             lista.removeFirst();
             modelo.addRow(datos);
+            System.out.println(unidad);
     
         }
         listaUser.setModel(modelo);

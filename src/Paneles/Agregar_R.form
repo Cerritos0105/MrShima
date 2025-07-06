@@ -173,6 +173,9 @@
       <Properties>
         <Property name="label" type="java.lang.String" value="Agregar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Label" name="label1">
       <Properties>
@@ -216,9 +219,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Galga Mayor"/>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Galga Mayor"/>
-      </AccessibilityProperties>
     </Component>
     <Component class="java.awt.Label" name="label9">
       <Properties>
@@ -237,7 +237,7 @@
     <Component class="java.awt.TextField" name="txtPrecio">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Text Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
     </Component>

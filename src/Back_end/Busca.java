@@ -657,7 +657,7 @@ public class Busca {
 
             while (rs.next()) {
                 int id = rs.getInt("ID");
-                String etiqueta = rs.getString("etiquera");
+                String etiqueta = rs.getString("etiqueta");
                 int cantidad = rs.getInt("cantidad");
                 double precio = rs.getDouble("precio");
                 double credito = rs.getDouble("credito");

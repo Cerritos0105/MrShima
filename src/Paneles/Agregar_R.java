@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Paneles;
-
+import Back_end.*;
 /**
  *
  * @author lupit
@@ -69,6 +69,11 @@ public class Agregar_R extends javax.swing.JFrame {
         });
 
         button2.setLabel("Agregar");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
 
         label1.setText("Etiqueta");
 
@@ -90,7 +95,7 @@ public class Agregar_R extends javax.swing.JFrame {
 
         label10.setText("Unidad");
 
-        txtPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,7 +203,6 @@ public class Agregar_R extends javax.swing.JFrame {
         );
 
         label7.getAccessibleContext().setAccessibleName("");
-        label8.getAccessibleContext().setAccessibleName("Galga Mayor");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,6 +212,18 @@ public class Agregar_R extends javax.swing.JFrame {
         rv.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        if(txtEtiqueta.getText().isEmpty() || txtMaquinas.getText().isEmpty() || txtDesc.getText().isEmpty()){
+            System.out.println("Inserte Todos lo datos");
+        }else{
+            Agregar a= new Agregar();
+            a.agregarB(txtEtiqueta.getText(), Integer.parseInt(txtCantidad.getText()), Double.parseDouble(txtPrecio.getText()), Double.parseDouble(txtCredito.getText()), 
+                    txtDesc.getText(), txtMaquinas.getText(), Integer.parseInt(txtGalgaMen.getText()), Integer.parseInt(txtGalgaMay.getText()), 
+                    Integer.parseInt(txtNivel.getText()), txtUni.getSelectedItem());
+            
+        }
+    }//GEN-LAST:event_button2ActionPerformed
 
     /**
      * @param args the command line arguments

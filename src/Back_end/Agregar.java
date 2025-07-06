@@ -80,5 +80,31 @@ public class Agregar {
             System.out.println("❌ Error al registrar la bordadora: " + e.getMessage());
         }
     }
+    public void agregarB(String etiqueta, int cantidad, double precio, double credito, String desc,
+                             String Maquinas, int galga_men, int galga_may, int nivel,
+                             String unidad) {
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "INSERT INTO invetario_b (etiqueta, cantidad, precio, credito, descripcion, maquinas, galga_men, galga_mayor, nivel, estado, unidad) " +
+                              "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, true, ?)";
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setString(1, etiqueta);
+                pstmt.setInt(2, cantidad);
+                pstmt.setDouble(3, precio);
+                pstmt.setDouble(4, credito);
+                pstmt.setString(5, desc);
+                pstmt.setString(6, Maquinas);
+                pstmt.setInt(7, galga_men);
+                pstmt.setInt(8, galga_may);
+                pstmt.setInt(9, nivel);
+                pstmt.setString(10, unidad);
+                
+                pstmt.executeUpdate();
+                System.out.println("✅ Refaccion registrada correctamente");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("❌ Error al registrar la refaccion: " + e.getMessage());
+        }
+    }
     
 }   
