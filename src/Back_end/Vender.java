@@ -133,5 +133,75 @@ public class Vender {
             System.out.println("❌ Error al vender la bordadora al contado: " + e.getMessage());
         }
     }
+    public void VenderR(int ID, int cantidad, double precio) {
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "INSERT INTO invetario_b (etiqueta, cantidad, precio, credito, descripcion, maquinas, galga_men, galga_mayor, nivel, estado, unidad) " +
+                              "SELECT etiqueta, ?, ?, 0, descripcion, maquinas, galga_men, galga_mayor, nivel, false, unidad " +
+                              "FROM invetario_b " +
+                              "WHERE ID = ?;";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setInt(1, cantidad);               // Nueva cantidad
+                pstmt.setDouble(2, precio * cantidad);   // Nuevo crédito (precio total)
+                pstmt.setInt(3, ID);                     // ID que buscas en invetario_b
+
+                pstmt.executeUpdate();
+                System.out.println("Venta registrada correctamente en invetario_b.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al registrar la venta: " + e.getMessage());
+        }
+
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "UPDATE invetario_b SET cantidad = cantidad - ? WHERE ID = ?;";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setInt(1, cantidad);   // Cantidad vendida
+                pstmt.setInt(2, ID);         // ID que vas a actualizar
+
+                pstmt.executeUpdate();
+                System.out.println("Cantidad actualizada correctamente en invetario_b.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al actualizar cantidad: " + e.getMessage());
+        }
+    }
+    public void VenderRD(int ID, int cantidad, double precio) {
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "INSERT INTO invetario_b (etiqueta, cantidad, precio, credito, descripcion, maquinas, galga_men, galga_mayor, nivel, estado, unidad) " +
+                              "SELECT etiqueta, ?, 0, ?, descripcion, maquinas, galga_men, galga_mayor, nivel, false, unidad " +
+                              "FROM invetario_b " +
+                              "WHERE ID = ?;";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setInt(1, cantidad);               // Nueva cantidad
+                pstmt.setDouble(2, precio * cantidad);   // Nuevo crédito (precio total)
+                pstmt.setInt(3, ID);                     // ID que buscas en invetario_b
+
+                pstmt.executeUpdate();
+                System.out.println("Venta registrada correctamente en invetario_b.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al registrar la venta: " + e.getMessage());
+        }
+
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "UPDATE invetario_b SET cantidad = cantidad - ? WHERE ID = ?;";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setInt(1, cantidad);   // Cantidad vendida
+                pstmt.setInt(2, ID);         // ID que vas a actualizar
+
+                pstmt.executeUpdate();
+                System.out.println("Cantidad actualizada correctamente en invetario_b.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al actualizar cantidad: " + e.getMessage());
+        }
+    }
 
 }

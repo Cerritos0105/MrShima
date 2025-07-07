@@ -39,4 +39,14 @@ public class Eliminar {
             //System.out.println(e);
         }
     }
+    public void Inventario_b(String id) throws SQLException{
+         String consulta = "delete from Invetario_b where ID=?;";
+        try (PreparedStatement pstmt = conexion.getConnection().prepareStatement(consulta)) {
+            pstmt.setString(1, id);
+            pstmt.executeUpdate();
+            //System.out.println("YES");
+        } catch(Exception e){
+            //System.out.println(e);
+        }
+    }
 }

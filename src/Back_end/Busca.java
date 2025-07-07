@@ -678,5 +678,159 @@ public class Busca {
         }
         return T;
     }
+    public InventarioB busca_B_ID(int ID){
+        InventarioB producto= new InventarioB();
+         try (Connection conn = conexion.getConnection()) {
+            
+            String consulta = "select * from Invetario_b where estado= true and ID = ?;";
+             try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setInt(1,ID);
+                Statement stmn = conn.createStatement();
+                ResultSet rs = pstmt.executeQuery();
+
+                while (rs.next()) {
+                    int id = rs.getInt("ID");
+                    String etiqueta = rs.getString("etiqueta");
+                    int cantidad = rs.getInt("cantidad");
+                    double precio = rs.getDouble("precio");
+                    double credito = rs.getDouble("credito");
+                    String desc = rs.getString("descripcion");
+                    String maquinas = rs.getString("Maquinas");
+                    int galga_men = rs.getInt("galga_men");
+                    int galga_may = rs.getInt("galga_mayor");
+                    int nivel = rs.getInt("nivel");
+                    String unidad = rs.getString("unidad");
+                    
+
+
+                     producto = new InventarioB(id,etiqueta, cantidad, precio, credito, desc, maquinas,galga_men, galga_may, nivel, unidad);
+            }
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al buscar Refaccion: " + e.getMessage());
+        }
+        return producto;
+    }
+    public List<InventarioB> buscarInventarioB(String etiqueta, int cantidad, double precio, double credito, String desc,
+                             String Maquinas, int galga_men, int galga_may, int nivel,
+                             String unidad) {
+        List<InventarioB> T = new ArrayList<>();
+
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "SELECT * FROM invetario_b WHERE estado = true and";
+            int cs = 0;
+
+            // Construcción dinámica de la consulta
+            if (!etiqueta.isEmpty()) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " etiqueta LIKE '%" + etiqueta + "%'";
+            }
+            if (cantidad > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " cantidad<= ?";
+            }
+            if (precio > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " precio <= ?";
+            }
+            if (credito > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " credito <= ?";
+            }
+            if (!desc.isEmpty()) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " descripcion LIKE '%" + desc + "%'";
+            }
+            if (!Maquinas.isEmpty()) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " maquinas LIKE '%" + Maquinas + "%'";
+            }
+            if (galga_men > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " galga_men = ?";
+            }
+            if (galga_may > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " galga_mayor = ?";
+            }
+            if (nivel > 0) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " nivel = ?";
+            }
+            if (!unidad.isEmpty()) {
+                cs += 1;
+                if(cs >= 2) consulta += " and";
+                consulta += " unidad LIKE '%" + unidad + "%'";
+            }
+            consulta +=" and estado = true;";
+            System.out.println(consulta);
+
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                int index = 1;
+
+               
+                if (precio > 0) {
+                    pstmt.setDouble(index++, precio);
+                }
+                if (credito > 0) {
+                    pstmt.setDouble(index++, credito);
+                }
+                if (galga_men > 0) {
+                    pstmt.setInt(index++, galga_men);
+                }
+                if (galga_may > 0) {
+                    pstmt.setInt(index++, galga_may);
+                }
+                if (nivel > 0) {
+                    pstmt.setInt(index++, nivel);
+                }
+                if (cantidad > 0) {
+                    pstmt.setInt(index++, cantidad);
+                }
+                
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    while (rs.next()) {
+                        int id = rs.getInt("ID");
+                        etiqueta = rs.getString("etiqueta");
+                        cantidad = rs.getInt("cantidad");
+                        precio = rs.getDouble("precio");
+                        credito = rs.getDouble("credito");
+                        desc = rs.getString("descripcion");
+                        String maquinas = rs.getString("Maquinas");
+                        galga_men = rs.getInt("galga_men");
+                        galga_may = rs.getInt("galga_mayor");
+                        nivel = rs.getInt("nivel");
+                        unidad = rs.getString("unidad");
+                        System.out.println(id);
+
+                    InventarioB producto = new InventarioB(id,etiqueta, cantidad, precio, credito, desc, maquinas,galga_men, galga_may, nivel, unidad);
+                    T.add(producto);
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al buscar productos: " + e.getMessage());
+        }
+        
+        
+
+        if (T.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
+        }
+
+        return T;
+    }
 
 }

@@ -220,4 +220,30 @@ public class Modificar {
                         System.out.println( "Error al Regresar la bordadora: " + e.getMessage());
                }
      }
+    public void Modificar_B(String ID,String etiqueta, int cantidad, double precio, double credito, String desc,
+                             String Maquinas, int galga_men, int galga_may, int nivel,
+                             String unidad) {
+        try (Connection conn = conexion.getConnection()) {
+            String consulta = "update  invetario_b set etiqueta=?, cantidad=?, precio=?, credito=?, descripcion=?, maquinas=?, galga_men=?, galga_mayor=?, nivel=?, unidad=? where ID = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(consulta)) {
+                pstmt.setString(1, etiqueta);
+                pstmt.setInt(2, cantidad);
+                pstmt.setDouble(3, precio);
+                pstmt.setDouble(4, credito);
+                pstmt.setString(5, desc);
+                pstmt.setString(6, Maquinas);
+                pstmt.setInt(7, galga_men);
+                pstmt.setInt(8, galga_may);
+                pstmt.setInt(9, nivel);
+                pstmt.setString(10, unidad);
+                pstmt.setString(11, ID);
+                pstmt.executeUpdate();
+                System.out.println("Registro actualizado correctamente.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al modificar: " + e.getMessage());
+        }
+    }
+    
 }

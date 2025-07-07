@@ -11,7 +11,6 @@ public class InventarioB {
     private int galga_men;
     private int nivel;
     private String unidad;
-
     public InventarioB() {
     }
 
@@ -27,6 +26,7 @@ public class InventarioB {
         this.galga_men = galga_men;
         this.nivel = nivel;
         this.unidad = unidad;
+        
     }
 
     public int getID() {
