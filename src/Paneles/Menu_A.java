@@ -34,8 +34,10 @@ public class Menu_A extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(240, 240, 240));
         setResizable(false);
 
+        button1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button1.setLabel("Volver");
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,14 +45,16 @@ public class Menu_A extends javax.swing.JFrame {
             }
         });
 
-        button2.setLabel("En venta");
+        button2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button2.setLabel("Abujas en venta");
         button2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button2ActionPerformed(evt);
             }
         });
 
-        button3.setLabel("Vendido sin pagar");
+        button3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button3.setLabel("Abujas a Credito");
         button3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button3ActionPerformed(evt);

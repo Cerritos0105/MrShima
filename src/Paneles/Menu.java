@@ -44,13 +44,13 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
-        setPreferredSize(new java.awt.Dimension(900, 650));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         button3.setActionCommand("btnTegedoras");
-        button3.setLabel("Inventario de tegedoras");
+        button3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button3.setLabel("Inventario de tejedoras");
         button3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button3ActionPerformed(evt);
@@ -58,6 +58,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         button4.setActionCommand("btnBordadoras");
+        button4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button4.setLabel("Inventario de bordadoras");
         button4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +67,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         button1.setActionCommand("btnInvetario_A");
+        button1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button1.setLabel("Inventario de Agujado");
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +76,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         button2.setActionCommand("btnRefacciones");
+        button2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button2.setLabel("Inventario de Refacciones");
         button2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +85,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnExel.setActionCommand("btnGenerar");
+        btnExel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnExel.setLabel("Generar Exel");
         btnExel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
