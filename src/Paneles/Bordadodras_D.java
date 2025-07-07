@@ -77,12 +77,11 @@ public class Bordadodras_D extends javax.swing.JFrame {
     private void initComponents() {
 
         button1 = new java.awt.Button();
-        button2 = new java.awt.Button();
-        button3 = new java.awt.Button();
-        button4 = new java.awt.Button();
-        button5 = new java.awt.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaUser = new javax.swing.JTable();
+        btnBuscar = new javax.swing.JButton();
+        btnAgregarB = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,34 +89,6 @@ public class Bordadodras_D extends javax.swing.JFrame {
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button1ActionPerformed(evt);
-            }
-        });
-
-        button2.setLabel("Modificar");
-        button2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button2ActionPerformed(evt);
-            }
-        });
-
-        button3.setLabel("Eliminar");
-        button3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button3ActionPerformed(evt);
-            }
-        });
-
-        button4.setLabel("Agregar Abono");
-        button4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button4ActionPerformed(evt);
-            }
-        });
-
-        button5.setLabel("Burcar");
-        button5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button5ActionPerformed(evt);
             }
         });
 
@@ -134,41 +105,62 @@ public class Bordadodras_D extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(listaUser);
 
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnAgregarB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Money.png"))); // NOI18N
+        btnAgregarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarBActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delete.png"))); // NOI18N
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAgregarB)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 30, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregarB)
+                            .addComponent(btnEliminar)
+                            .addComponent(btnBuscar))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -180,31 +172,27 @@ public class Bordadodras_D extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_button1ActionPerformed
 
-    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         Buscar_B_D bbd =new Buscar_B_D();
         bbd.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_button5ActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        Modificar_B_D mbd = new Modificar_B_D();
-        mbd.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_button2ActionPerformed
-
-    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
+    private void btnAgregarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarBActionPerformed
         if(Tabla_Id==0){
             System.out.println("Selecione un producto");
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un producto");
         }else{
             Agregar_A_B  aab = new Agregar_A_B(Tabla_Id);
             aab.setVisible(true);
             this.setVisible(false);
         }
-    }//GEN-LAST:event_button4ActionPerformed
+    }//GEN-LAST:event_btnAgregarBActionPerformed
 
-    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if(Tabla_Id==0){
             System.out.println("Selecione un producto");
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un producto");
         }else{
            Modificar m = new Modificar();
            m.RegresarB(Tabla_Id);
@@ -212,7 +200,7 @@ public class Bordadodras_D extends javax.swing.JFrame {
            bd.setVisible(true);
            this.setVisible(false);
         }
-    }//GEN-LAST:event_button3ActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,11 +238,10 @@ public class Bordadodras_D extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarB;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEliminar;
     private java.awt.Button button1;
-    private java.awt.Button button2;
-    private java.awt.Button button3;
-    private java.awt.Button button4;
-    private java.awt.Button button5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable listaUser;
     // End of variables declaration//GEN-END:variables
