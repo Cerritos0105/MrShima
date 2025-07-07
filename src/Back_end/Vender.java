@@ -20,7 +20,7 @@ public class Vender {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al vender la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al vender la tegedora: " + e.getMessage());
                }
      }
      public void VenderT(int ID, String p){
@@ -34,7 +34,7 @@ public class Vender {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al vender la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al vender la tegedora: " + e.getMessage());
                }
      }
 
@@ -53,7 +53,7 @@ public class Vender {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al vender la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al vender la tegedora: " + e.getMessage());
                }
          try (Connection conn = conexion.getConnection()) {
                    String consulta = "UPDATE inventario_A SET cantida = cantida - ? WHERE ID = ?;";
@@ -65,7 +65,7 @@ public class Vender {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al vender la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al vender la tegedora: " + e.getMessage());
                }
      }
      public void VenderAD(int ID,int cantidad, double precio){
@@ -83,7 +83,7 @@ public class Vender {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al vender la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al vender la tegedora: " + e.getMessage());
                }
          try (Connection conn = conexion.getConnection()) {
                    String consulta = "UPDATE inventario_A SET cantida = cantida - ? WHERE ID = ?;";
@@ -95,7 +95,7 @@ public class Vender {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al vender la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al vender la tegedora: " + e.getMessage());
                }
      }
 
@@ -110,11 +110,11 @@ public class Vender {
                 pstmt.setString(1, propietario);
                 pstmt.setInt(2, ID);
                 pstmt.executeUpdate();
-                System.out.println("✅ Bordadora vendida (con crédito intacto).");
+                //System.out.println("✅ Bordadora vendida (con crédito intacto).");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("❌ Error al vender la bordadora: " + e.getMessage());
+            //System.out.println("❌ Error al vender la bordadora: " + e.getMessage());
         }
     }
 
@@ -126,11 +126,11 @@ public class Vender {
                 pstmt.setString(1, propietario);
                 pstmt.setInt(2, ID);
                 pstmt.executeUpdate();
-                System.out.println("✅ Bordadora vendida al contado (crédito = 0).");
+                //System.out.println("✅ Bordadora vendida al contado (crédito = 0).");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("❌ Error al vender la bordadora al contado: " + e.getMessage());
+            //System.out.println("❌ Error al vender la bordadora al contado: " + e.getMessage());
         }
     }
     public void VenderR(int ID, int cantidad, double precio) {
@@ -146,11 +146,11 @@ public class Vender {
                 pstmt.setInt(3, ID);                     // ID que buscas en invetario_b
 
                 pstmt.executeUpdate();
-                System.out.println("Venta registrada correctamente en invetario_b.");
+                //System.out.println("Venta registrada correctamente en invetario_b.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al registrar la venta: " + e.getMessage());
+            //System.out.println("Error al registrar la venta: " + e.getMessage());
         }
 
         try (Connection conn = conexion.getConnection()) {
@@ -161,11 +161,11 @@ public class Vender {
                 pstmt.setInt(2, ID);         // ID que vas a actualizar
 
                 pstmt.executeUpdate();
-                System.out.println("Cantidad actualizada correctamente en invetario_b.");
+                //System.out.println("Cantidad actualizada correctamente en invetario_b.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al actualizar cantidad: " + e.getMessage());
+            //System.out.println("Error al actualizar cantidad: " + e.getMessage());
         }
     }
     public void VenderRD(int ID, int cantidad, double precio) {
@@ -181,11 +181,11 @@ public class Vender {
                 pstmt.setInt(3, ID);                     // ID que buscas en invetario_b
 
                 pstmt.executeUpdate();
-                System.out.println("Venta registrada correctamente en invetario_b.");
+                //System.out.println("Venta registrada correctamente en invetario_b.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al registrar la venta: " + e.getMessage());
+            //System.out.println("Error al registrar la venta: " + e.getMessage());
         }
 
         try (Connection conn = conexion.getConnection()) {
@@ -196,11 +196,11 @@ public class Vender {
                 pstmt.setInt(2, ID);         // ID que vas a actualizar
 
                 pstmt.executeUpdate();
-                System.out.println("Cantidad actualizada correctamente en invetario_b.");
+                //System.out.println("Cantidad actualizada correctamente en invetario_b.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al actualizar cantidad: " + e.getMessage());
+            //System.out.println("Error al actualizar cantidad: " + e.getMessage());
         }
     }
 

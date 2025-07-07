@@ -9,6 +9,7 @@ import Back_end.Eliminar;
 import Objetos.InventarioB;
 import java.sql.SQLException;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -208,13 +209,14 @@ public class Refacciones_D extends javax.swing.JFrame {
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Seleccione un Producto");
+            JOptionPane.showMessageDialog(null, "Seleccione un Producto");
+            //System.out.println("");
         }else{
             Eliminar e = new Eliminar();
             try {
                 e.Inventario_b(String.valueOf(Tabla_Id));
             } catch (SQLException ex) {
-                System.getLogger(Refacciones_V.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                //System.getLogger(Refacciones_V.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
             Refacciones_D rv = new Refacciones_D();
             rv.setVisible(true);

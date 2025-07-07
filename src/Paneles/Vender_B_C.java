@@ -4,6 +4,7 @@
  */
 package Paneles;
 import Back_end.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Think
@@ -107,7 +108,8 @@ public class Vender_B_C extends javax.swing.JFrame {
         
         String p = txtp.getText();
         if(p.isEmpty()){
-            System.out.println("Favor de colocar un propietario nuevo");
+            JOptionPane.showMessageDialog(null, "Favor de colocar un propietario nuevo");
+            //System.out.println("");
         }else{
             Vender v = new Vender();
             v.VenderBD(idt, p);

@@ -53,7 +53,7 @@ public class Exel {
 
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al exportar: " + e.getMessage());
+            //JOptionPane.showMessageDialog(null, "Error al exportar: " + e.getMessage());
         }
     }
      private void exportarTabla(Connection conn, Workbook workbook, String nombreTabla) {
@@ -83,7 +83,7 @@ public class Exel {
 
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error exportando la tabla: " + nombreTabla + "\n" + e.getMessage());
+            //JOptionPane.showMessageDialog(null, "Error exportando la tabla: " + nombreTabla + "\n" + e.getMessage());
         }
     }
      private void exportarTabla_V(Connection conn, Workbook workbook, String nombreTabla) {
@@ -113,7 +113,7 @@ public class Exel {
 
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error exportando la tabla: " + nombreTabla + "\n" + e.getMessage());
+            //JOptionPane.showMessageDialog(null, "Error exportando la tabla: " + nombreTabla + "\n" + e.getMessage());
         }
     }
      private void exportarTabla_D(Connection conn, Workbook workbook, String nombreTabla) {
@@ -143,7 +143,7 @@ public class Exel {
 
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error exportando la tabla: " + nombreTabla + "\n" + e.getMessage());
+            //JOptionPane.showMessageDialog(null, "Error exportando la tabla: " + nombreTabla + "\n" + e.getMessage());
         }
     }
 

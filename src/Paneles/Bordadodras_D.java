@@ -7,6 +7,7 @@ import Objetos.BordadoraO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import Back_end.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -180,7 +181,6 @@ public class Bordadodras_D extends javax.swing.JFrame {
 
     private void btnAgregarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarBActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
             javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un producto");
         }else{
             Agregar_A_B  aab = new Agregar_A_B(Tabla_Id);
@@ -191,7 +191,7 @@ public class Bordadodras_D extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            //System.out.println("Selecione un producto");
             javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un producto");
         }else{
            Modificar m = new Modificar();

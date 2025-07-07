@@ -8,6 +8,7 @@ import Objetos.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -63,7 +64,7 @@ public class R_BA extends javax.swing.JFrame {
                 String.valueOf(cantidad),
                 tamano
             };
-            System.out.println(lista.getFirst().getID());
+            //System.out.println(lista.getFirst().getID());
             lista.removeFirst();
             modelo.addRow(datos);
     
@@ -209,7 +210,8 @@ public class R_BA extends javax.swing.JFrame {
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         if(Tabla_Id == 0){
-            System.out.println("Favor de seleccionar un Producto");
+            JOptionPane.showMessageDialog(null, "Favor de seleccionar un Producto");
+            //System.out.println("F");
         }else{
             Modificar_Aujas ma = new Modificar_Aujas(Tabla_Id);
             ma.setVisible(true);
@@ -248,13 +250,14 @@ public class R_BA extends javax.swing.JFrame {
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         if(Tabla_Id == 0){
-            System.out.println("Favor de seleccionar un Producto");
+            JOptionPane.showMessageDialog(null, "Favor de seleccionar un Producto");
+            //System.out.println("");
         }else{
             Eliminar e= new Eliminar();
             try {
                 e.Inventario_A(String.valueOf(Tabla_Id));
             } catch (SQLException ex) {
-                System.getLogger(R_BA.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                //System.getLogger(R_BA.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
             Aujas as = new Aujas();
             as.setVisible(true);
@@ -264,7 +267,8 @@ public class R_BA extends javax.swing.JFrame {
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         if(Tabla_Id == 0){
-            System.out.println("Favor de seleccionar un Producto");
+            JOptionPane.showMessageDialog(null, "Favor de seleccionar un Producto");
+            //System.out.println("");
         }else{
             VenderA va = new VenderA(precio, Tabla_Id, cantidado);
             va.setVisible(true);

@@ -7,6 +7,7 @@ import Objetos.*;
 import Back_end.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -205,7 +206,8 @@ public class Resultado_B_B extends javax.swing.JFrame {
         this.setVisible(false);
         */
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             System.out.println(Tabla_Id);
             Modificar_Bor mb = new Modificar_Bor(Tabla_Id);
@@ -216,7 +218,8 @@ public class Resultado_B_B extends javax.swing.JFrame {
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             Eliminar e = new Eliminar();
             e.Bordadora(String.valueOf(Tabla_Id));

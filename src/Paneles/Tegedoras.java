@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import Objetos.*;
 import Back_end.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,7 +60,7 @@ public class Tegedoras extends javax.swing.JFrame {
                 String.valueOf(cabezas),
                 String.valueOf(anio)
             };
-            System.out.println(lista.getFirst().getId());
+            //System.out.println(lista.getFirst().getId());
             lista.removeFirst();
             modelo.addRow(datos);
     
@@ -212,7 +213,8 @@ public class Tegedoras extends javax.swing.JFrame {
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             Eliminar e = new Eliminar();
             e.Tegedora(String.valueOf(Tabla_Id));
@@ -238,7 +240,8 @@ public class Tegedoras extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             System.out.println(Tabla_Id);
             Modoficar_T mt = new Modoficar_T(Tabla_Id);
@@ -262,7 +265,8 @@ public class Tegedoras extends javax.swing.JFrame {
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             Vneder_T vt = new Vneder_T(Tabla_Id);
             vt.setVisible(true);
@@ -273,7 +277,8 @@ public class Tegedoras extends javax.swing.JFrame {
 
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             Vender_T_C vt = new Vender_T_C(Tabla_Id);
             vt.setVisible(true);

@@ -28,7 +28,7 @@ public class Modificar {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al modificar la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al modificar la tegedora: " + e.getMessage());
                }
      }
      public void Vender(int ID){
@@ -41,7 +41,7 @@ public class Modificar {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al vender la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al vender la tegedora: " + e.getMessage());
                }
      }
      public void VenderD(int ID){
@@ -55,7 +55,7 @@ public class Modificar {
                } catch (Exception e) {
                    e.printStackTrace(); 
 
-                        System.out.println( "Error al vender la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al vender la tegedora: " + e.getMessage());
                }
      }
      public void Agregrar_Abono_T(int ID, double cantidad) {
@@ -83,7 +83,7 @@ public class Modificar {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al vender la tejedora: " + e.getMessage());
+            //System.out.println("Error al vender la tejedora: " + e.getMessage());
         }
     }
     public void Regresar(int ID){
@@ -96,7 +96,7 @@ public class Modificar {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al Regresar la tegedora: " + e.getMessage());
+                        //System.out.println( "Error al Regresar la tegedora: " + e.getMessage());
                }
      }
     public void Modificar_A(int ID, String nombre, double precio, double credito, String Maquinas, int galga_men, int galga_may, int nivel, int cantidad, String tamano) {
@@ -118,7 +118,7 @@ public class Modificar {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al modificar: " + e.getMessage());
+            //System.out.println("Error al modificar: " + e.getMessage());
         }
     }
 
@@ -148,7 +148,7 @@ public class Modificar {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al vender la tejedora: " + e.getMessage());
+            //System.out.println("Error al vender la tejedora: " + e.getMessage());
         }
     }
     public void Modificar_Bor(int id, String marca, double precio, String area, int cabezas, int colores,
@@ -170,11 +170,11 @@ public class Modificar {
             pstmt.setDouble(11, saldo);
             pstmt.setInt(12, id); // 🔁 Aquí va el ID en el WHERE
             pstmt.executeUpdate();
-            System.out.println("✅ Bordadora modificada con éxito.");
+            //System.out.println("✅ Bordadora modificada con éxito.");
         }
     } catch (Exception e) {
         e.printStackTrace();
-        System.out.println("❌ Error al modificar la bordadora: " + e.getMessage());
+        //System.out.println("❌ Error al modificar la bordadora: " + e.getMessage());
     }
 }
     
@@ -204,7 +204,7 @@ public class Modificar {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al vender la bordadora: " + e.getMessage());
+            //System.out.println("Error al vender la bordadora: " + e.getMessage());
         }
     }
     public void RegresarB(int ID){
@@ -217,7 +217,7 @@ public class Modificar {
                    }
                } catch (Exception e) {
                    e.printStackTrace(); 
-                        System.out.println( "Error al Regresar la bordadora: " + e.getMessage());
+                        //System.out.println( "Error al Regresar la bordadora: " + e.getMessage());
                }
      }
     public void Modificar_B(String ID,String etiqueta, int cantidad, double precio, double credito, String desc,
@@ -242,7 +242,7 @@ public class Modificar {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al modificar: " + e.getMessage());
+            //System.out.println("Error al modificar: " + e.getMessage());
         }
     }
     public void Agregrar_Abono_R(int ID, double cantidad) {
@@ -270,7 +270,7 @@ public class Modificar {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al vender la tejedora: " + e.getMessage());
+            //System.out.println("Error al vender la tejedora: " + e.getMessage());
         }
     }
 }

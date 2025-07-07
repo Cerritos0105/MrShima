@@ -44,7 +44,7 @@ public class Buscar_Bordadora{
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("❌ Error al buscar bordadoras disponibles: " + e.getMessage());
+            //System.out.println("❌ Error al buscar bordadoras disponibles: " + e.getMessage());
         }
         return lista;
     }
@@ -77,7 +77,7 @@ public class Buscar_Bordadora{
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("❌ Error al buscar bordadoras a crédito: " + e.getMessage());
+            //System.out.println("❌ Error al buscar bordadoras a crédito: " + e.getMessage());
         }
         return lista;
     }

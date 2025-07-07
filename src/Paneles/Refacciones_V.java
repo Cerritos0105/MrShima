@@ -8,6 +8,7 @@ import Back_end.*;
 import Objetos.*;
 import java.sql.SQLException;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -225,7 +226,8 @@ public class Refacciones_V extends javax.swing.JFrame {
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Seleccione un Producto");
+            JOptionPane.showMessageDialog(null, "Seleccione un Producto");
+            //System.out.println("");
         }else{
             Modificar_R mr = new Modificar_R(Tabla_Id);
             mr.setVisible(true);
@@ -252,13 +254,14 @@ public class Refacciones_V extends javax.swing.JFrame {
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Seleccione un Producto");
+            JOptionPane.showMessageDialog(null, "Seleccione un Producto");
+            //.System.out.println("");
         }else{
             Eliminar e = new Eliminar();
             try {
                 e.Inventario_b(String.valueOf(Tabla_Id));
             } catch (SQLException ex) {
-                System.getLogger(Refacciones_V.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                //System.getLogger(Refacciones_V.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
             Refacciones_V rv = new Refacciones_V();
             rv.setVisible(true);
@@ -268,7 +271,8 @@ public class Refacciones_V extends javax.swing.JFrame {
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         if(Tabla_Id == 0){
-            System.out.println("Favor de seleccionar un Producto");
+            JOptionPane.showMessageDialog(null, "Favor de seleccionar un Producto");
+            //System.out.println("");
         }else{
             Vender_R va = new Vender_R(precio, Tabla_Id, cantidado);
             va.setVisible(true);

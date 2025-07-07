@@ -2,6 +2,7 @@ package Api;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Conexion {
     // URL correcta para la conexión a MySQL
@@ -17,7 +18,7 @@ public class Conexion {
             //System.out.println("Conectado a la base de datos");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Error de conexion");
+            JOptionPane.showMessageDialog(null, "Error de Conexion");
         }
         return conn;
     }

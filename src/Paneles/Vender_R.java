@@ -4,6 +4,7 @@
  */
 package Paneles;
 import Back_end.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author lupit
@@ -111,7 +112,8 @@ public class Vender_R extends javax.swing.JFrame {
         if(!txtCant.getText().isEmpty()){
             int cant= Integer.parseInt(txtCant.getText());
             if(cant<=0 || cant > cantida){
-                System.out.println("Cantidad no validad");
+                JOptionPane.showMessageDialog(null, "Cantidad no validad");
+                //System.out.println("");
             }else{
                 v.VenderR(id, cant, pr);
             }

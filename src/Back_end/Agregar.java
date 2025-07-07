@@ -2,6 +2,7 @@ package Back_end;
 import Api.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 public class Agregar {
     private Conexion conexion;
@@ -23,11 +24,13 @@ public class Agregar {
                 pstmt.setInt(9, cabezas);
                 pstmt.setInt(10, anio);
                 pstmt.executeUpdate();
-                System.out.println("Registrado Correctamente");
+                JOptionPane.showMessageDialog(null, "Registrado Correctamente");
+                //System.out.println("");
             }
         }catch (Exception e) {
             e.printStackTrace(); 
-            System.out.println( "Error al registrar la tegedora: " + e.getMessage());
+            //JOptionPane.showMessageDialog(null, "Error al registrar la tegedora");
+            //System.out.println( "" + e.getMessage());
         }
     }
     public void Agrgar_A(String nombre, double precio, double credito, String maquinas, int galga_men, int galga_may, int nivel , int cantidad, String tamano){
@@ -45,11 +48,13 @@ public class Agregar {
                 pstmt.setBoolean(9, true);
                 pstmt.setString(10, tamano);
                 pstmt.executeUpdate();
-                System.out.println("Registrado Correctamente");
+                JOptionPane.showMessageDialog(null, "Registrado Correctamente");
+                //System.out.println("");
             }
         }catch (Exception e) {
             e.printStackTrace(); 
-            System.out.println( "Error al registrar : " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al registrar");
+            //System.out.println( "" + e.getMessage());
         }
     }
     
@@ -73,11 +78,13 @@ public class Agregar {
                 pstmt.setDouble(11, saldo);
                 pstmt.setString(12, propietario);
                 pstmt.executeUpdate();
-                System.out.println("✅ Bordadora registrada correctamente");
+                JOptionPane.showMessageDialog(null, "✅ Bordadora registrada correctamente");
+                //System.out.println("");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("❌ Error al registrar la bordadora: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "❌ Error al registrar la bordadora: ");
+            //System.out.println("" + e.getMessage());
         }
     }
     public void agregarB(String etiqueta, int cantidad, double precio, double credito, String desc,
@@ -99,11 +106,11 @@ public class Agregar {
                 pstmt.setString(10, unidad);
                 
                 pstmt.executeUpdate();
-                System.out.println("✅ Refaccion registrada correctamente");
+                JOptionPane.showMessageDialog(null, "✅ Refaccion registrada correctamente");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("❌ Error al registrar la refaccion: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "❌ Error al registrar la refaccion: ");
         }
     }
     

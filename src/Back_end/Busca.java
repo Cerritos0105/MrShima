@@ -115,7 +115,7 @@ public class Busca {
             
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar productos: " + e.getMessage());
+            //System.out.println("Error al buscar productos: " + e.getMessage());
         }
 
         if(productos.isEmpty()) JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
@@ -223,7 +223,7 @@ public class Busca {
             
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar productos: " + e.getMessage());
+            //System.out.println("Error al buscar productos: " + e.getMessage());
         }
 
         if(productos.isEmpty()) JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
@@ -255,7 +255,7 @@ public class Busca {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar Tgedoras: " + e.getMessage());
+            //System.out.println("Error al buscar Tgedoras: " + e.getMessage());
         }
         return T;
     }
@@ -391,7 +391,7 @@ public class Busca {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar productos: " + e.getMessage());
+            //System.out.println("Error al buscar productos: " + e.getMessage());
         }
         
         
@@ -502,7 +502,7 @@ public class Busca {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar productos: " + e.getMessage());
+            //System.out.println("Error al buscar productos: " + e.getMessage());
         }
 
         if (productos.isEmpty()) {
@@ -609,7 +609,7 @@ public class Busca {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar bordadoras: " + e.getMessage());
+            //System.out.println("Error al buscar bordadoras: " + e.getMessage());
         }
 
         return lista;
@@ -643,7 +643,7 @@ public class Busca {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar Tgedoras: " + e.getMessage());
+            //System.out.println("Error al buscar Tgedoras: " + e.getMessage());
         }
         return T;
     }
@@ -674,7 +674,7 @@ public class Busca {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar Produto: " + e.getMessage());
+            //System.out.println("Error al buscar Produto: " + e.getMessage());
         }
         return T;
     }
@@ -708,7 +708,7 @@ public class Busca {
         }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar Refaccion: " + e.getMessage());
+            //System.out.println("Error al buscar Refaccion: " + e.getMessage());
         }
         return producto;
     }
@@ -821,7 +821,7 @@ public class Busca {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar productos: " + e.getMessage());
+            //System.out.println("Error al buscar productos: " + e.getMessage());
         }
         
         
@@ -859,7 +859,7 @@ public class Busca {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar Produto: " + e.getMessage());
+            //System.out.println("Error al buscar Produto: " + e.getMessage());
         }
         return T;
     }
@@ -972,7 +972,8 @@ public class Busca {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar productos: " + e.getMessage());
+            
+            //System.out.println("Error al buscar productos: " + e.getMessage());
         }
         
         

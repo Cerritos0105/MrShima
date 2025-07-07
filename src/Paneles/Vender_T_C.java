@@ -5,6 +5,7 @@
 package Paneles;
 
 import Back_end.Vender;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -90,7 +91,8 @@ public class Vender_T_C extends javax.swing.JFrame {
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         String p = txtp.getText();
        if(p.isEmpty()){
-           System.out.println("Favor de colocar un propietario nuevo");
+           JOptionPane.showMessageDialog(null, "Favor de colocar un propietario nuevo");
+           //System.out.println("");
        }else{
            Vender v = new Vender();
            v.VenderTD(idt, p);

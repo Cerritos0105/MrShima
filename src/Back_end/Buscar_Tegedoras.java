@@ -38,7 +38,7 @@ public class Buscar_Tegedoras {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar Tgedoras: " + e.getMessage());
+            //System.out.println("Error al buscar Tgedoras: " + e.getMessage());
         }
         return T;
     }
@@ -68,7 +68,7 @@ public class Buscar_Tegedoras {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar Usuarios: " + e.getMessage());
+            //System.out.println("Error al buscar Usuarios: " + e.getMessage());
         }
         return T;
     }

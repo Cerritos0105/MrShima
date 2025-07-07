@@ -9,6 +9,7 @@ import Objetos.InventarioA;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -176,7 +177,8 @@ public class R_BAD extends javax.swing.JFrame {
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         if(Tabla_Id ==0){
-            System.out.println("Seleccione un producto");
+            JOptionPane.showMessageDialog(null, "Seleccione un producto");
+            //System.out.println("");
         }else{
             Agregar_A_A aaa = new Agregar_A_A(Tabla_Id);
             aaa.setVisible(true);
@@ -201,7 +203,8 @@ public class R_BAD extends javax.swing.JFrame {
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         if(Tabla_Id == 0){
-            System.out.println("Favor de seleccionar un Producto");
+            JOptionPane.showMessageDialog(null, "Favor de seleccionar un Producto");
+            //System.out.println("");
         }else{
             Eliminar e= new Eliminar();
             try {

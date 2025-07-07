@@ -3,16 +3,46 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Menu.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/MenuB.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Menu_A.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Menu_R.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Menu_T.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Bordaodoras.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Agregar_Bordadora.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Modificar_Bor.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Bordadodras_D.java</file>
-            <file>file:/C:/Users/Think/OneDrive/Documentos/NetBJava/Punto_Venta/Punto_Venta/src/Paneles/Agregar_A_B.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/R_BA.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Buscar.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Agregar_Aujas.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Agregar_R.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Back_end/Agregar.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/R_BAD.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Back_end/Exel.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Back_end/Busca.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Refacciones_V.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Buscar_T_D.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Back_end/Modificar.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Back_end/Vender.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Aujas.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Busca_A_D.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Tegedoras_Deuda.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Objetos/InventarioB.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Aujas_D.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/R_B_TD.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Resultado_B_B.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Back_end/ObtenerD.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Back_end/Eliminar.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/MenuB.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Modificar_R.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Modificar_Aujas.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Objetos/BordadoraO.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Objetos/InventarioA.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Buscar_R.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/RBRV.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Buscar_B_D.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/R_B_BD.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Vender_R.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/VenderA.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/VenderAD.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Vender_B_C.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/VenderRD.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Refacciones_D.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Agregar_A_R.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Buscar_R_D.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/Buscar_T.java</file>
+            <file>file:/C:/Users/lupit/Downloads/Punto_Venta/Punto_Venta/src/Paneles/RBRD.java</file>
         </group>
     </open-files>
 </project-private>

@@ -7,6 +7,7 @@ import Objetos.*;
 import Back_end.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -51,7 +52,7 @@ public class Resultado_B_T extends javax.swing.JFrame {
                 String.valueOf(cabezas),
                 String.valueOf(anio)
             };
-            System.out.println(lista.getFirst().getId());
+            //System.out.println(lista.getFirst().getId());
             lista.removeFirst();
             modelo.addRow(datos);
     
@@ -204,7 +205,8 @@ public class Resultado_B_T extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             System.out.println(Tabla_Id);
             Modoficar_T mt = new Modoficar_T(Tabla_Id);
@@ -248,7 +250,8 @@ public class Resultado_B_T extends javax.swing.JFrame {
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             Vneder_T vt = new Vneder_T(Tabla_Id);
             vt.setVisible(true);
@@ -259,7 +262,8 @@ public class Resultado_B_T extends javax.swing.JFrame {
 
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         if(Tabla_Id==0){
-            System.out.println("Selecione un producto");
+            JOptionPane.showMessageDialog(null, "Selecione un producto");
+            //System.out.println("");
         }else{
             Vender_T_C vt = new Vender_T_C(Tabla_Id);
             vt.setVisible(true);

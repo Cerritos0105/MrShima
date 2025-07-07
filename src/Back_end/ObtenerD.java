@@ -41,7 +41,7 @@ public class ObtenerD {
             
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al buscar Tegedora: " + e.getMessage());
+            //System.out.println("Error al buscar Tegedora: " + e.getMessage());
         }
         return x;
     }
@@ -74,7 +74,7 @@ public class ObtenerD {
         }
     } catch (Exception e) {
         e.printStackTrace();
-        System.out.println("❌ Error al obtener la bordadora: " + e.getMessage());
+        //System.out.println("❌ Error al obtener la bordadora: " + e.getMessage());
     }
     return b;
 }
