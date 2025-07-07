@@ -4,10 +4,10 @@
  */
 package Paneles;
 
-import Back_end.Busca;
 import Back_end.Eliminar;
 import Objetos.InventarioB;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,19 +15,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lupit
  */
-public class Refacciones_D extends javax.swing.JFrame {
+public class RBRD extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RBRD.class.getName());
 
     /**
-     * Creates new form Refacciones_D
+     * Creates new form RBRD
      */
     int Tabla_Id=0;
     double precio=0;
     int cantidado=0;
     double credito=0;
-    public Refacciones_D() {
+    public RBRD(List<InventarioB> lista) {
         initComponents();
-        Busca  b= new Busca();
-        List<InventarioB> lista= b.busca_BD ();
         int id, cantidad,galga_men, galga_may,nivel;
         String etiqueta, maquinas,  unidad;
         double precio, credito;
@@ -155,7 +155,7 @@ public class Refacciones_D extends javax.swing.JFrame {
                         .addGap(116, 116, 116)
                         .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,13 +166,19 @@ public class Refacciones_D extends javax.swing.JFrame {
                     .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        Menu_R mr = new Menu_R();
+        mr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_button1ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         if(Tabla_Id==0){
@@ -199,12 +205,6 @@ public class Refacciones_D extends javax.swing.JFrame {
         cantidado=Integer.parseInt((String) model.getValueAt(row, 8));
         credito = Double.parseDouble((String) model.getValueAt(row, 3));
     }//GEN-LAST:event_listaUserMouseClicked
-
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        Menu_R mr = new Menu_R();
-        mr.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_button1ActionPerformed
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         if(Tabla_Id==0){
@@ -238,23 +238,14 @@ public class Refacciones_D extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Refacciones_D.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Refacciones_D.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Refacciones_D.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Refacciones_D.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Refacciones_D().setVisible(true);
-            }
-        });
+        List<InventarioB> ls = new ArrayList();
+        java.awt.EventQueue.invokeLater(() -> new RBRD(ls).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
